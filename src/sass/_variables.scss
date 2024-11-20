@@ -1,0 +1,29 @@
+// رنگ‌های پایه
+$white: #ffffff; // سفید خالص
+$light-gray: #f2f2f2; // خاکستری روشن
+$dark-gray: #282828; // خاکستری تیره
+$pale-gray: #f8f8f8; // خاکستری خیلی روشن
+$hot-pink: #f21055; // صورتی پررنگ
+$sky-blue: #0c8ce9; // آبی روشن
+$black: #1e1e1e; // مشکی تیره
+
+$themes: (
+  light: (
+    bg: $white,
+    text: $black,
+    input-bg: $pale-gray,
+    input-text: $dark-gray,
+    btn-bg: $hot-pink,
+    btn-text: $white,
+    link: $sky-blue,
+  ),
+  dark: (
+    bg: $black,
+    text: $white,
+    input-bg: $pale-gray,
+    input-text: $dark-gray,
+    btn-bg: $hot-pink,
+    btn-text: $white,
+    link: $sky-blue,
+  ),
+);

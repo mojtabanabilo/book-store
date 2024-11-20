@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    <h1>welcome</h1>
+    <h1>ثبت نام</h1>
   </main>
 </template>
