@@ -1,5 +1,5 @@
 <template>
-  <main :class="theme">
+  <main :class="theme" dir="rtl">
     <ToggleTheme v-model:toggle-theme="theme" />
     <RouterView />
   </main>

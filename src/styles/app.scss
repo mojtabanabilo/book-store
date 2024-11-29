@@ -1,5 +1,12 @@
-@use "../sass/variables" as vars;
+@use "@/sass/variables" as vars;
+@use "@/sass/mixins" as mixins;
 @use "sass:map";
+
+main {
+  min-width: 100vw;
+  min-height: 100vh;
+  @include mixins.flex(column, center, center);
+}
 
 .theme-light {
   background-color: map.get(map.get(vars.$themes, light), bg);
