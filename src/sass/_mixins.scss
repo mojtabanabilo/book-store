@@ -12,3 +12,9 @@
   bottom: $bottom;
   left: $left;
 }
+
+@mixin media-Query-maxWidth($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

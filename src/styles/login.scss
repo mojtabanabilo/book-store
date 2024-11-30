@@ -4,7 +4,7 @@
   width: 100%;
   height: 100%;
   @include mixins.flex(row, center, center);
-  .sign_up {
+  .login {
     width: 460px;
     height: 590px;
     border-radius: 40px;
@@ -51,21 +51,21 @@
 }
 
 @include mixins.media-Query-maxWidth(685px) {
-  .container .sign_up {
+  .container .login {
     width: 80%;
   }
-  .container .sign_up .inputs {
+  .container .login .inputs {
     padding: 0 20px;
     width: 100%;
   }
-  .container .sign_up .submit_btn {
+  .container .login .submit_btn {
     padding: 0 20px;
     width: 100%;
   }
 }
 
 @include mixins.media-Query-maxWidth(370px) {
-  .container .sign_up {
+  .container .login {
     width: 95%;
   }
 }
