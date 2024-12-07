@@ -23,8 +23,7 @@
 <script setup>
 import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n(); // فراخوانی تابع t برای ترجمه
+const { t } = useI18n();
 
 const clickHandler = () => {
   console.log(t)

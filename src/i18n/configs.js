@@ -7,29 +7,41 @@ const i18n = createI18n({
     en: {
       roots: {
         signUp: {
-            title: "Sign up",
-            username: "username",
-            password: "password",
-            repeatPass: "repeat password",
-            submitBtn: "Sign up",
-            link: "Do you have account?"
+          title: "Sign up",
+          username: "username",
+          password: "password",
+          repeatPass: "repeat password",
+          submitBtn: "Sign up",
+          link: "Do you have account?",
         },
-        logIn: {},
-        main: {}
+        logIn: {
+          title: "Login",
+          username: "username",
+          password: "password",
+          submitBtn: "Login",
+          link: "Create an account.",
+        },
+        main: {},
       },
     },
     fa: {
       roots: {
         signUp: {
-            title: "ثبت نام",
-            username: "نام کاربری",
-            password: "رمز عبور",
-            repeatPass: "تکرار رمز عبور",
-            submitBtn: "ثبت نام",
-            link: "حساب کاربری دیگری دارید؟"
+          title: "ثبت نام",
+          username: "نام کاربری",
+          password: "رمز عبور",
+          repeatPass: "تکرار رمز عبور",
+          submitBtn: "ثبت نام",
+          link: "حساب کاربری دیگری دارید؟",
         },
-        logIn: {},
-        main: {}
+        logIn: {
+          title: "ورود",
+          username: "نام کاربری",
+          password: "رمز عبور",
+          submitBtn: "ورود",
+          link: "ساخت حساب کاربری جدید.",
+        },
+        main: {},
       },
     },
   },
