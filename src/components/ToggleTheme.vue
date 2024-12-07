@@ -19,5 +19,5 @@ const emitToggle = () => {
 </script>
 
 <style lang="scss" scoped>
-@use "../styles/toggleButton";
+@use "../styles/toggleTheme.scss";
 </style>
