@@ -17,7 +17,6 @@ const langname = computed(() => {
 
 // method
 function changeLanguage(lang) {
-  console.log(lang)
   language.value = !language.value
   locale.value = lang;
 }

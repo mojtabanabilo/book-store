@@ -24,11 +24,9 @@ import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-const clickHandler = () => {
-    console.log('first')
-}
+const clickHandler = () => {}
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/login.scss";
+@use "../styles/login.scss";
 </style>
