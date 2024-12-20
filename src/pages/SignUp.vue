@@ -25,7 +25,7 @@ import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-const clickHandler = () => {}
+const clickHandler = () => { }
 </script>
 
 <style lang="scss" scoped>

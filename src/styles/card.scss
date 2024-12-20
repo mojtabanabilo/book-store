@@ -1,0 +1,22 @@
+@use "@/sass/mixins" as mixins;
+
+.card{
+    width: 230px;
+    height: 245px;
+    border-radius: 12px;
+    @include mixins.flex(column, center, center);
+    img{
+        width: 125px;
+        height: 140px;
+        border-radius: 3px;
+    }
+    h2{
+        font-size: large;
+        font-weight: 400;
+        margin: 10px 0;
+    }
+    p{
+        font-size: small;
+        font-weight: 400;
+    }
+}

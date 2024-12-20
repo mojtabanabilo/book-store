@@ -2,9 +2,16 @@
 @use "@/sass/mixins" as mixins;
 @use "sass:map";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Vazirmatn, sans-serif;
+}
+
 main {
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  min-height: 100vh;
   @include mixins.flex(column, center, center);
 }
 
@@ -25,6 +32,10 @@ main {
   a {
     color: map.get(map.get(vars.$themes, light), link);
   }
+
+  .card {
+    box-shadow: map.get(map.get(vars.$themes, dark), shadow);
+  }
 }
 
 .theme-dark {
@@ -43,5 +54,9 @@ main {
 
   a {
     color: map.get(map.get(vars.$themes, dark), link);
+  }
+
+  .card {
+    box-shadow: map.get(map.get(vars.$themes, light), shadow);
   }
 }

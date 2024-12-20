@@ -21,7 +21,10 @@ const i18n = createI18n({
           submitBtn: "Login",
           link: "Create an account.",
         },
-        main: {},
+        main: {
+          title: "All books",
+          sort: "Sort"
+        },
       },
     },
     fa: {
@@ -41,7 +44,10 @@ const i18n = createI18n({
           submitBtn: "ورود",
           link: "ساخت حساب کاربری جدید.",
         },
-        main: {},
+        main: {
+          title: "همه کناب ها",
+          sort: "مرتب سازی"
+        },
       },
     },
   },
