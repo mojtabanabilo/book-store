@@ -10,6 +10,7 @@
         <div class="cards">
             <Card />
         </div>
+        <pagination />
     </main>
 </template>
 

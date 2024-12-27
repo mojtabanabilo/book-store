@@ -1,0 +1,25 @@
+@use "@/sass/mixins" as mixins;
+
+.pagination {
+    gap: 5px;
+    transform: translate(-50%, -98%);
+    @include mixins.flex(row, center, center);
+    @include mixins.position(absolute, 98%, _, _, 50%);
+    button {
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+        border: none;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+        @include mixins.flex(row, center, center);
+        &:hover {
+            background-color: #ff5f5f;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
