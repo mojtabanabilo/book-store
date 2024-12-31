@@ -1,22 +1,31 @@
 @use "@/sass/mixins" as mixins;
 
-.card{
-    width: 230px;
-    height: 245px;
-    border-radius: 12px;
-    @include mixins.flex(column, center, center);
-    img{
-        width: 125px;
-        height: 140px;
-        border-radius: 3px;
+.card {
+  width: 230px;
+  height: 245px;
+  border-radius: 12px;
+  @include mixins.flex(column, center, center);
+  img {
+    width: 125px;
+    height: 140px;
+    border-radius: 3px;
+  }
+  h2 {
+    font-size: large;
+    font-weight: 400;
+    margin: 10px 0;
+  }
+  .buy {
+    width: 100%;
+    padding: 0 20px;
+    @include mixins.flex(row, space-between, center);
+    p {
+      font-size: small;
+      font-weight: 400;
     }
-    h2{
-        font-size: large;
-        font-weight: 400;
-        margin: 10px 0;
+    img {
+        width: 25px;
+        height: 25px;
     }
-    p{
-        font-size: small;
-        font-weight: 400;
-    }
+  }
 }
