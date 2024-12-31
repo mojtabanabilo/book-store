@@ -1,5 +1,6 @@
 export const routes = {
     UMain: '/',
     ULogin: '/login',
-    USignUp: '/sign-up'
+    USignUp: '/sign-up',
+    UBookList: '/book-list'
 }

@@ -7,17 +7,22 @@ const router = createRouter({
     {
       path: routes.UMain,
       name: "Main",
-      component: () => import("@/pages/Main.vue"),
+      component: () => import("@/pages/Main.vue")
     },
     {
       path: routes.USignUp,
       name: "SignUp",
-      component: () => import("@/pages/SignUp.vue"),
+      component: () => import("@/pages/SignUp.vue")
     },
     {
       path: routes.ULogin,
       name: "Login",
       component: () => import("@/pages/Login.vue")
+    },
+    {
+      path: routes.UBookList,
+      name: "BookList",
+      component: () => import("@/pages/BookList.vue")
     }
   ],
 });
