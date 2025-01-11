@@ -7,10 +7,7 @@
                 <p>داستایوفسکی</p>
                 <p>نشر علم</p>
                 <h3>250 هزار تومان</h3>
-                <button>
-                    <img :src="cartIcon" alt="icon">
-                    <span>{{ t('roots.bookList.btnPurchase') }}</span>
-                </button>
+                <Button :label="t('roots.bookList.btnPurchase')" width="200px" height="50px" :icon="cartIcon" />
             </div>
         </div>
         <div class="details" :dir="directionLang">
@@ -46,6 +43,7 @@ import { useI18n } from 'vue-i18n';
 import picture from "@/assets/pic.jpg"
 import cartIcon from "@/assets/icons/icons8-cart-50.png"
 import { watch, ref } from 'vue';
+import Button from '@/components/Button.vue';
 
 const { t } = useI18n();
 const { locale } = useI18n();

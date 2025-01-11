@@ -12,7 +12,7 @@
                 <input type="text" :placeholder="t('roots.logIn.password')">
             </div>
             <div class="submit_btn">
-                <button>{{ t('roots.logIn.submitBtn') }}</button>
+                <Button :label="t('roots.logIn.submitBtn')" width="100%" height="50px" margin="20px 0" />
                 <router-link :to="routes.USignUp">{{ t('roots.logIn.link') }}</router-link>
             </div>
         </form>
@@ -20,6 +20,7 @@
 </template>
 
 <script setup>
+import Button from '@/components/Button.vue';
 import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();

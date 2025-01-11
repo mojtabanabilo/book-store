@@ -5,7 +5,7 @@
                 <img :src="bookIcon" alt="books" />
                 <h2>{{ t('roots.main.title') }}</h2>
             </div>
-            <button>{{ t('roots.main.sort') }}</button>
+            <Button :label="t('roots.main.sort')" width="130px" height="50px" />
         </div>
         <div class="cards">
             <Card />
@@ -20,6 +20,7 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 import Card from "@/components/Card.vue"
 import books from "@/assets/icons/icons8-book-48.png"
+import Button from "@/components/Button.vue";
 
 const bookIcon = ref(books)
 </script>

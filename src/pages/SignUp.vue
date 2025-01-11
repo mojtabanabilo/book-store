@@ -13,7 +13,7 @@
         <input type="text" :placeholder="t('roots.signUp.repeatPass')">
       </div>
       <div class="submit_btn">
-        <button @click="clickHandler">{{ t('roots.signUp.submitBtn') }}</button>
+        <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px" margin="20px 0" />
         <router-link :to="routes.ULogin">{{ t('roots.signUp.link') }}</router-link>
       </div>
     </form>
@@ -21,6 +21,7 @@
 </template>
 
 <script setup>
+import Button from '@/components/Button.vue';
 import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
