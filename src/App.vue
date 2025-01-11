@@ -15,7 +15,7 @@ import { getLocalStorage } from './utils/hooks/localStorage';
 const { locale } = useI18n();
 // data
 const directionLang = ref('rtl');
-const theme = ref(getLocalStorage('theme'))//ref('theme-light');
+const theme = ref(getLocalStorage('theme'))
 // watch
 watch(locale, (newVal) => newVal === "en" ? directionLang.value = "ltr" : directionLang.value = "rtl")
 </script>

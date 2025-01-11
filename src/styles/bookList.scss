@@ -1,0 +1,83 @@
+@use "@/sass/mixins" as mixins;
+
+.book-list {
+  width: 85%;
+  height: fit-content;
+  padding: 60px 0;
+  border-radius: 40px;
+  border: solid #e4e4e4 1px;
+  @include mixins.flex(row, space-evenly, center);
+  .book {
+    @include mixins.flex(row, center, center);
+    > * {
+      margin: 0 15px;
+    }
+    .book-picture {
+      width: 290px;
+      height: 350px;
+      border-radius: 20px;
+    }
+    .titles {
+      h3 {
+        margin: 20px 0 0 0;
+      }
+      button {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        border-radius: 12px;
+        border: none;
+        margin: 20px 0 0 0;
+        @include mixins.flex(row, center, center);
+        > * {
+          margin: 0 5px;
+        }
+        img {
+          width: 25px;
+          height: 25px;
+        }
+        span {
+          font-weight: 400;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  .details {
+    > * {
+      width: 250px;
+      @include mixins.flex(row, space-between, center);
+    }
+  }
+}
+
+@include mixins.media-Query-maxWidth(1050px) {
+  .book-list {
+    margin: 30px 0;
+    padding: 30px 0;
+    width: 60%;
+    @include mixins.flex(column, center, center);
+    .book {
+      @include mixins.flex(column, center, center);
+      .book-picture {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+      }
+      .titles {
+        margin: 10px 0 0 0;
+        @include mixins.flex(column, center, center);
+      }
+    }
+    .details {
+      margin: 30px 0 0 0;
+    }
+  }
+}
+
+@include mixins.media-Query-maxWidth(550px) {
+  .book-list {
+    margin: 70px 0;
+    width: 90%;
+  }
+}

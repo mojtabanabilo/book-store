@@ -25,6 +25,15 @@ const i18n = createI18n({
           title: "All books",
           sort: "Sort"
         },
+        bookList: {
+          bookCode: "Book code",
+          ISBN: "ISBN",
+          format: "Format",
+          numberPages: "Number of Pages",
+          yearPublication: "Year of Publication",
+          printSeries: "Print Series",
+          btnPurchase: "Purchase"
+        }
       },
     },
     fa: {
@@ -48,6 +57,15 @@ const i18n = createI18n({
           title: "همه کتاب ها",
           sort: "مرتب سازی" 
         },
+        bookList: {
+          bookCode: "کد کتاب",
+          ISBN: "شابک",
+          format: "قطع",
+          numberPages: "تعداد صفحه",
+          yearPublication: "سال انتشار",
+          printSeries: "سری چاپ",
+          btnPurchase: "خرید"
+        }
       },
     },
   },

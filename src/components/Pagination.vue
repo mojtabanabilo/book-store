@@ -1,5 +1,5 @@
 <template>
-    <div class="pagination">
+    <div class="pagination" dir="rtl">
         <button @click="prevPage" v-show="prevShowHandler">
             <img :src="prevIcon" alt="icons" />
         </button>
