@@ -8,8 +8,8 @@
             </svg>
             <h2>{{ t('roots.logIn.title') }}</h2>
             <div class="inputs">
-                <input type="text" :placeholder="t('roots.logIn.username')">
-                <input type="text" :placeholder="t('roots.logIn.password')">
+                <Input type="text" :placeholder="t('roots.logIn.username')" />
+                <Input type="text" :placeholder="t('roots.logIn.password')" />
             </div>
             <div class="submit_btn">
                 <Button :label="t('roots.logIn.submitBtn')" width="100%" height="50px" margin="20px 0" />
@@ -21,6 +21,7 @@
 
 <script setup>
 import Button from '@/components/Button.vue';
+import Input from '@/components/Input.vue';
 import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();

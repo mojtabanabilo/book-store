@@ -8,9 +8,9 @@
       </svg>
       <h2>{{ t('roots.signUp.title') }}</h2>
       <div class="inputs">
-        <input type="text" :placeholder="t('roots.signUp.username')">
-        <input type="text" :placeholder="t('roots.signUp.password')">
-        <input type="text" :placeholder="t('roots.signUp.repeatPass')">
+        <Input type="text" :placeholder="t('roots.signUp.username')" />
+        <Input type="text" :placeholder="t('roots.signUp.password')" />
+        <Input type="text" :placeholder="t('roots.signUp.repeatPass')" />
       </div>
       <div class="submit_btn">
         <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px" margin="20px 0" />
@@ -22,6 +22,7 @@
 
 <script setup>
 import Button from '@/components/Button.vue';
+import Input from '@/components/Input.vue';
 import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
