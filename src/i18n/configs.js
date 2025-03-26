@@ -33,6 +33,11 @@ const i18n = createI18n({
           yearPublication: "Year of Publication",
           printSeries: "Print Series",
           btnPurchase: "Purchase"
+        },
+        productsList: {
+          searchPlaceHolder: "Book Search",
+          addBooks: "Add Book",
+          bookManagment: "Book Managment"
         }
       },
     },
@@ -65,6 +70,11 @@ const i18n = createI18n({
           yearPublication: "سال انتشار",
           printSeries: "سری چاپ",
           btnPurchase: "خرید"
+        },
+        productsList: {
+          searchPlaceHolder: "جستجوی کتاب",
+          addBooks: "افزودن کتاب",
+          bookManagment: "مدیریت کتاب"
         }
       },
     },

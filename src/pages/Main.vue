@@ -20,7 +20,6 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 import Card from "@/components/Card.vue"
 import books from "@/assets/icons/icons8-book-48.png"
-import Button from "@/components/Button.vue";
 
 const bookIcon = ref(books)
 </script>

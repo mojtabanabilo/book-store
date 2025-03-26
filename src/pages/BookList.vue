@@ -43,7 +43,6 @@ import { useI18n } from 'vue-i18n';
 import picture from "@/assets/pic.jpg"
 import cartIcon from "@/assets/icons/icons8-cart-50.png"
 import { watch, ref } from 'vue';
-import Button from '@/components/Button.vue';
 
 const { t } = useI18n();
 const { locale } = useI18n();

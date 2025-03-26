@@ -20,8 +20,6 @@
 </template>
 
 <script setup>
-import Button from '@/components/Button.vue';
-import Input from '@/components/Input.vue';
 import { routes } from '@/constans/routes';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();

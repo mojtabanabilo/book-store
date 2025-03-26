@@ -3,7 +3,7 @@ import { routes } from "@/constans/routes";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+  routes: [ 
     {
       path: routes.UMain,
       name: "Main",
@@ -23,6 +23,11 @@ const router = createRouter({
       path: routes.UBookList,
       name: "BookList",
       component: () => import("@/pages/BookList.vue")
+    },
+    {
+      path: routes.UProductsList,
+      name: 'UProductsList',
+      component: () => import("@/pages/ProductsList.vue")
     }
   ],
 });
