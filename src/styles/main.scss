@@ -17,9 +17,9 @@
   }
   .cards {
     width: 100%;
+    display: grid;
     justify-items: center;
     align-items: center;
-    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 20px;
     padding: 20px 100px;

@@ -26,7 +26,7 @@ import { watch, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import myPic from "@/assets/pic.jpg"
 import searchIcon from "@/assets/icons/icons8-search-48.png"
-import managmentBooksIcon from "@/assets/icons/setting-3.png"
+import managmentBooksIcon from "@/assets/icons/icons8-management-50.png"
 const { t, locale } = useI18n();
 const directionLang = ref('rtl');
 
