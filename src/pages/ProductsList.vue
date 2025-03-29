@@ -18,6 +18,20 @@
             </div>
             <Button :label="t('roots.productsList.addBooks')" width="130px" height="50px" />
         </div>
+        <div class="data-table">
+            <Table :columns="['name', 'age', 'job']" :data="[
+                { name: 'علی', age: '30', job: 'برنامه‌نویس' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'محمد', age: '35', job: 'مدیر' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'زهرا', age: '25', job: 'طراح' },
+                { name: 'زهرا', age: '25', job: 'طراح' }
+            ]" />
+        </div>
     </div>
 </template>
 

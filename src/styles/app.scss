@@ -11,14 +11,28 @@
 }
 
 main {
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  min-height: 100vh;
   @include mixins.flex(column, center, center);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: inherit;
 }
 
 .theme-light {
   background-color: map.get(map.get(vars.$themes, light), bg);
   color: map.get(map.get(vars.$themes, light), text);
+
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: map.get(map.get(vars.$themes, light), scrollbar);
+  }
 
   input {
     background-color: map.get(map.get(vars.$themes, light), input-bg);
@@ -37,11 +51,21 @@ main {
   .card {
     box-shadow: map.get(map.get(vars.$themes, dark), shadow);
   }
+
+  th {
+    background-color: map.get(map.get(vars.$themes, light), th-bg);
+  }
 }
 
 .theme-dark {
   background-color: map.get(map.get(vars.$themes, dark), bg);
   color: map.get(map.get(vars.$themes, dark), text);
+
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: map.get(map.get(vars.$themes, dark), scrollbar);
+  }
 
   input {
     background-color: map.get(map.get(vars.$themes, dark), input-bg);
@@ -59,5 +83,9 @@ main {
 
   .card {
     box-shadow: map.get(map.get(vars.$themes, light), shadow);
+  }
+
+  th {
+    background-color: map.get(map.get(vars.$themes, dark), th-bg);
   }
 }

@@ -1,0 +1,25 @@
+@use "@/sass/mixins" as mixins;
+
+.table {
+  width: 100%;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  .actions {
+    @include mixins.flex(row, center, center);
+    img {
+      margin: 0 3px;
+      cursor: pointer;
+    }
+  }
+}

@@ -11,6 +11,7 @@ $dark-shadow: 0px 0px 4px 0px#f8f8f8; // سایه روشن
 
 $themes: (
   light: (
+    scrollbar: $hot-pink,
     bg: $white,
     text: $black,
     input-bg: $pale-gray,
@@ -18,9 +19,11 @@ $themes: (
     btn-bg: $hot-pink,
     btn-text: $white,
     link: $sky-blue,
-    shadow: $dark-shadow
+    shadow: $dark-shadow,
+    th-bg: $light-gray,
   ),
   dark: (
+    scrollbar: $light-gray,
     bg: $black,
     text: $white,
     input-bg: $pale-gray,
@@ -28,6 +31,7 @@ $themes: (
     btn-bg: $hot-pink,
     btn-text: $white,
     link: $sky-blue,
-    shadow: $light-shadow
+    shadow: $light-shadow,
+    th-bg: $hot-pink,
   ),
 );

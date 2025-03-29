@@ -58,4 +58,10 @@
       }
     }
   }
+  .data-table {
+    width: 80%;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+  }
 }
