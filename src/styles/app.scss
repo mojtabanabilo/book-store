@@ -39,6 +39,11 @@ main {
     color: map.get(map.get(vars.$themes, light), input-text);
   }
 
+  textarea {
+    background-color: map.get(map.get(vars.$themes, light), input-bg);
+    color: map.get(map.get(vars.$themes, light), input-text);
+  }
+
   button {
     background-color: map.get(map.get(vars.$themes, light), btn-bg);
     color: map.get(map.get(vars.$themes, light), btn-text);
@@ -68,6 +73,11 @@ main {
   }
 
   input {
+    background-color: map.get(map.get(vars.$themes, dark), input-bg);
+    color: map.get(map.get(vars.$themes, dark), input-text);
+  }
+
+  textarea {
     background-color: map.get(map.get(vars.$themes, dark), input-bg);
     color: map.get(map.get(vars.$themes, dark), input-text);
   }

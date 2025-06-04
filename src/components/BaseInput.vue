@@ -1,5 +1,5 @@
 <template>
-    <component :is="isTextarea" :class="['input-field', inputSize]" :placeholder="placeholder" :type="isType" />
+    <component :is="isTextarea" :class="['input-field', inputSize, { textarea: isTextarea === 'textarea' }]" :placeholder="placeholder" :type="isType" />
 </template>
 
 <script setup>
@@ -8,8 +8,7 @@ import { computed, defineProps } from 'vue';
 const props = defineProps({
     type: {
         type: String,
-        default: 'text',
-        required: true
+        default: 'text'
     },
     placeholder: {
         type: String,
@@ -59,6 +58,10 @@ const inputSize = computed(() => `input-${props.size}`);
     &.input-large {
         height: 60px;
         font-size: 18px;
+    }
+    &.textarea {
+        height: 100px;
+        resize: vertical;
     }
 }
 </style>
