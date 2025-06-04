@@ -8,8 +8,8 @@
             </svg>
             <h2>{{ t('roots.logIn.title') }}</h2>
             <div class="inputs">
-                <Input type="text" :placeholder="t('roots.logIn.username')" />
-                <Input type="text" :placeholder="t('roots.logIn.password')" />
+                <BaseInput type="text" :placeholder="t('roots.logIn.username')" />
+                <BaseInput type="text" :placeholder="t('roots.logIn.password')" />
             </div>
             <div class="submit_btn">
                 <Button :label="t('roots.logIn.submitBtn')" width="100%" height="50px" margin="20px 0" />

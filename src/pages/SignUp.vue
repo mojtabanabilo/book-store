@@ -8,9 +8,9 @@
       </svg>
       <h2>{{ t('roots.signUp.title') }}</h2>
       <div class="inputs">
-        <Input type="text" :placeholder="t('roots.signUp.username')" />
-        <Input type="text" :placeholder="t('roots.signUp.password')" />
-        <Input type="text" :placeholder="t('roots.signUp.repeatPass')" />
+        <BaseInput type="text" :placeholder="t('roots.signUp.username')" />
+        <BaseInput type="text" :placeholder="t('roots.signUp.password')" />
+        <BaseInput type="text" :placeholder="t('roots.signUp.repeatPass')" />
       </div>
       <div class="submit_btn">
         <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px" margin="20px 0" />

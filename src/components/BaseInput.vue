@@ -1,5 +1,5 @@
 <template>
-    <input :class="['input-field', inputSize]" :placeholder="placeholder" :type="type" />
+    <component :is="isTextarea" :class="['input-field', inputSize]" :placeholder="placeholder" :type="isType" />
 </template>
 
 <script setup>
@@ -20,8 +20,14 @@ const props = defineProps({
         default: 'medium',
         validator: (value) => ['small', 'medium', 'large'].includes(value),
     },
+    textarea: {
+        type: Boolean,
+        default: false
+    }
 });
 
+const isTextarea = computed(() => props.textarea ? 'textarea' : 'input');
+const isType = computed(() => props.textarea ? undefined : props.type);
 const inputSize = computed(() => `input-${props.size}`);
 </script>
 

@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <DeleteModal :show="showModal" @close-modal="showModal = false" />
+        <AddModal />
         <div class="search-container">
             <div class="search-box" :dir="directionLang">
                 <img :src="searchIcon" alt="search" class="search-icon" />
