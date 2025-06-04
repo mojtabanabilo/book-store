@@ -15,7 +15,7 @@
                 </td>
                 <td class="actions">
                     <img :src="edit" alt="edit" />
-                    <img :src="trash" alt="trash" />
+                    <img :src="trash" alt="trash" @click="emit('show-modal')" />
                 </td>
             </tr>
         </tbody>
@@ -23,14 +23,16 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 import trash from "@/assets/icons/trash.png";
 import edit from "@/assets/icons/edit.png";
 
+const emit = defineEmits(['show-modal']);
 const props = defineProps({
     columns: Array,
     data: Array
 });
+
 </script>
 
 <style lang="scss" scoped>

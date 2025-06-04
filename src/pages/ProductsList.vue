@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <DeleteModal :show="showModal" @close-modal="showModal = false" />
         <div class="search-container">
             <div class="search-box" :dir="directionLang">
                 <img :src="searchIcon" alt="search" class="search-icon" />
@@ -19,30 +20,27 @@
             <Button :label="t('roots.productsList.addBooks')" width="130px" height="50px" />
         </div>
         <div class="data-table">
-            <Table :columns="['name', 'age', 'job']" :data="[
-                { name: 'علی', age: '30', job: 'برنامه‌نویس' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'محمد', age: '35', job: 'مدیر' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'زهرا', age: '25', job: 'طراح' },
-                { name: 'زهرا', age: '25', job: 'طراح' }
-            ]" />
+            <Table :columns="['name', 'age', 'job']" :data="productsData" @show-modal="showModal = true" />
         </div>
     </div>
 </template>
 
 <script setup>
-import { watch, ref } from 'vue';
+import { watch, ref, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import myPic from "@/assets/pic.jpg"
 import searchIcon from "@/assets/icons/icons8-search-48.png"
 import managmentBooksIcon from "@/assets/icons/icons8-management-50.png"
+import DeleteModal from '@/components/DeleteModal.vue';
+
 const { t, locale } = useI18n();
 const directionLang = ref('rtl');
+const showModal = ref(false);
+const productsData = reactive([
+    { name: 'کتاب اول', age: 10, job: 'نویسنده' },
+    { name: 'کتاب دوم', age: 20, job: 'مترجم' },
+    { name: 'کتاب سوم', age: 30, job: 'ویراستار' }
+]);
 
 watch(locale, (newVal) => newVal === "en" ? directionLang.value = "ltr" : directionLang.value = "rtl")
 </script>

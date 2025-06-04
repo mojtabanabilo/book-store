@@ -1,0 +1,43 @@
+@use "@/sass/mixins" as mixins;
+
+.bg {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #00000093;
+  transform: translate(-50%, -50%);
+  @include mixins.position(absolute, 50%, _, _, 50%);
+  @include mixins.flex(column, center, center);
+  .modal {
+    background: white;
+    border-radius: 30px;
+    width: 470px;
+    height: 340px;
+    @include mixins.flex(column, center, center);
+    img {
+      width: 100px;
+      height: 98px;
+      margin: 0 0 60px 0;
+    }
+    p {
+      font-weight: 600;
+      color: black;
+      margin: 0 0 10px 0;
+    }
+    .btn {
+      > * {
+        width: 160px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      .cancel-btn {
+        background: #dfdfdf;
+        color: #000;
+      }
+    }
+  }
+}
