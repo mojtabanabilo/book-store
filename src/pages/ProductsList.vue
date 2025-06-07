@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <DeleteModal :show="showModal" @close-modal="showModal = false" />
-        <AddModal />
+        <DeleteModal :show="showDeleteModal" @close-modal="showDeleteModal = false" />
+        <AddModal :show="showAddModal" @close-modal="showAddModal = false" />
         <div class="search-container">
             <div class="search-box" :dir="directionLang">
                 <img :src="searchIcon" alt="search" class="search-icon" />
@@ -18,10 +18,10 @@
                 <img :src="managmentBooksIcon" alt="books" />
                 <h2>{{ t('roots.productsList.bookManagment') }}</h2>
             </div>
-            <Button :label="t('roots.productsList.addBooks')" width="130px" height="50px" />
+            <Button :label="t('roots.productsList.addBooks')" width="130px" height="50px" @click="showAddModal = true" />
         </div>
         <div class="data-table">
-            <Table :columns="['name', 'age', 'job']" :data="productsData" @show-modal="showModal = true" />
+            <Table :columns="['name', 'age', 'job']" :data="productsData" @show-modal="showDeleteModal = true" />
         </div>
     </div>
 </template>
@@ -36,7 +36,8 @@ import DeleteModal from '@/components/DeleteModal.vue';
 
 const { t, locale } = useI18n();
 const directionLang = ref('rtl');
-const showModal = ref(false);
+const showDeleteModal = ref(false);
+const showAddModal = ref(false);
 const productsData = reactive([
     { name: 'کتاب اول', age: 10, job: 'نویسنده' },
     { name: 'کتاب دوم', age: 20, job: 'مترجم' },

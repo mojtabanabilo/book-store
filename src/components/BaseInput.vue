@@ -31,8 +31,6 @@ const inputSize = computed(() => `input-${props.size}`);
 </script>
 
 <style lang="scss" scoped>
-@use "@/sass/mixins" as mixins;
-
 .input-field {
     width: 100%;
     margin: 5px;
@@ -62,6 +60,8 @@ const inputSize = computed(() => `input-${props.size}`);
     &.textarea {
         height: 100px;
         resize: vertical;
+        max-height: 200px;
+        overflow-y: auto;
     }
 }
 </style>

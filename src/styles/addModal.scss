@@ -9,11 +9,27 @@
   @include mixins.position(absolute, 50%, _, _, 50%);
   @include mixins.flex(column, center, center);
   .modal {
-    width: 470px;
-    height: 600px;
+    width: 60%;
+    max-width: 500px;
+    height: 500px;
     background: white;
     padding: 0 20px;
     border-radius: 30px;
     @include mixins.flex(column, center, center);
+    h2 {
+      margin: 0 0 30PX 0;
+    }
+    .count-price {
+      width: 100%;
+      @include mixins.flex(row, space-between, center);
+    }
+    .btns {
+      width: 100%;
+      margin-top: 20px;
+      >*{
+        margin: 0 5px
+      }
+      @include mixins.flex(row, center, center);
+    }
   }
 }

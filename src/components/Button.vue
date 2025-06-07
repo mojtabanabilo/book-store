@@ -1,5 +1,5 @@
 <template>
-    <button :class="['btn', buttonSize]" :style="buttonStyle">
+    <button :class="['btn', buttonSize, buttonBackground]" :style="buttonStyle">
         <span v-if="icon" class="btn-icon">
             <img :src="icon" alt="icon">
         </span>
@@ -31,23 +31,35 @@ const props = defineProps({
         type: String,
         default: '',
     },
-    radius: {
-        type: String,
-        default: '15px'
+    styleProps: {
+        type: Object,
+        default: () => ({
+            radius: '15px',
+            margin: '',
+            background: 'btn-hot-pink',
+        }),
     },
-    margin: {
-        type: String,
-        default: ''
-    }
+    // radius: {
+    //     type: String,
+    //     default: '15px'
+    // },
+    // margin: {
+    //     type: String,
+    //     default: ''
+    // },
+    // background: {
+    //     type: String,
+    //     default: 'btn-hot-pink',
+    // },
 })
 
+const buttonBackground = computed(() => props.styleProps.background);
 const buttonStyle = computed(() => ({
     width: props.width,
     height: props.height,
-    borderRadius: props.radius,
-    margin: props.margin
+    borderRadius: props.styleProps.radius,
+    margin: props.styleProps.margin,
 }))
-
 const buttonSize = computed(() => {
     switch (props.size) {
         case 'small':
@@ -62,6 +74,7 @@ const buttonSize = computed(() => {
 </script>
 <style lang="scss" scoped>
 @use "@/sass/mixins" as mixins;
+@use '@/sass/variables' as *;
 
 .btn {
     display: flex;
@@ -69,10 +82,8 @@ const buttonSize = computed(() => {
     justify-content: center;
     padding: 10px 20px;
     border: none;
-    //   border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    //   font-size: 1rem;
 
     &-icon {
         margin-right: 8px;
@@ -98,6 +109,21 @@ const buttonSize = computed(() => {
         font-size: 1.2rem;
         padding: 15px 30px;
     }
+}
+
+.btn-hot-pink {
+    background: $hot-pink;
+    color: $white;
+}
+
+.btn-light-green {
+    background: $light-green;
+    color: $white;
+}
+
+.btn-gray {
+    background: $gray;
+    color: $black;
 }
 
 @media (max-width: 768px) {
