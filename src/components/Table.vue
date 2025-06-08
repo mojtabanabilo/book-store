@@ -14,8 +14,8 @@
                     {{ row[col] }}
                 </td>
                 <td class="actions">
-                    <img :src="edit" alt="edit" />
-                    <img :src="trash" alt="trash" @click="emit('show-modal')" />
+                    <img :src="edit" alt="edit" @click="emit('show-modal', 'edit')"  />
+                    <img :src="trash" alt="trash" @click="emit('show-modal', 'delete')" />
                 </td>
             </tr>
         </tbody>

@@ -121,6 +121,11 @@ const buttonSize = computed(() => {
     color: $white;
 }
 
+.btn-sky-blue {
+    background: $sky-blue;
+    color: $white;
+}
+
 .btn-gray {
     background: $gray;
     color: $black;

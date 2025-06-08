@@ -9,7 +9,7 @@
   @include mixins.position(absolute, 50%, _, _, 50%);
   @include mixins.flex(column, center, center);
   .modal {
-    background: white;
+    background: #ffffff;
     border-radius: 30px;
     width: 470px;
     height: 340px;

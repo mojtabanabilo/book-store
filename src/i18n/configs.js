@@ -53,6 +53,16 @@ const i18n = createI18n({
           price: 'Price',
           create: 'Create',
           cancel: 'Cancel'
+        },
+        editModal: {
+          title: 'Edit book information',
+          bookName: 'Book name',
+          authorName: 'Author name',
+          summary: 'Summary',
+          count: 'Count',
+          price: 'Price',
+          change: 'Change',
+          cancel: 'Cancel'
         }
       },
     },
@@ -104,6 +114,16 @@ const i18n = createI18n({
           count: 'تعداد',
           price: 'قیمت',
           create: 'ایجاد',
+          cancel: 'انصراف'
+        },
+        editModal: {
+          title: 'ویرایش اطلاعات کتاب',
+          bookName: 'نام کتاب',
+          authorName: 'نام نویسنده',
+          summary: 'خلاصه',
+          count: 'تعداد',
+          price: 'قیمت',
+          change: 'اعمال تغییرات',
           cancel: 'انصراف'
         }
       },

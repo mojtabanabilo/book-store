@@ -10,6 +10,7 @@ import BaseInput from "./components/BaseInput.vue";
 import Table from "./components/Table.vue";
 import DeleteModal from "./components/DeleteModal.vue";
 import AddModal from "./components/AddModal.vue";
+import EditModal from "./components/EditModal.vue";
 
 const app = createApp(App);
 
@@ -19,6 +20,7 @@ app.component("BaseInput", BaseInput)
 app.component("Table", Table)
 app.component("DeleteModal", DeleteModal)
 app.component("AddModal", AddModal)
+app.component("EditModal", EditModal)
 
 app.use(createPinia());
 app.use(router);
