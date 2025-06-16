@@ -38,19 +38,7 @@ const props = defineProps({
             margin: '',
             background: 'btn-hot-pink',
         }),
-    },
-    // radius: {
-    //     type: String,
-    //     default: '15px'
-    // },
-    // margin: {
-    //     type: String,
-    //     default: ''
-    // },
-    // background: {
-    //     type: String,
-    //     default: 'btn-hot-pink',
-    // },
+    }
 })
 
 const buttonBackground = computed(() => props.styleProps.background);

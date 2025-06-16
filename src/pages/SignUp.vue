@@ -13,7 +13,8 @@
         <BaseInput type="text" :placeholder="t('roots.signUp.repeatPass')" />
       </div>
       <div class="submit_btn">
-        <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px" margin="20px 0" />
+        <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px"
+          :styleProps="{ radius: '15px', margin: '20px 0' }" />
         <router-link :to="routes.ULogin">{{ t('roots.signUp.link') }}</router-link>
       </div>
     </form>
