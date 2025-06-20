@@ -1,5 +1,5 @@
 <template>
-    <input :class="['input-field', inputSize]" :placeholder="placeholder" v-model="modelValue" />
+    <textarea v-model="modelValue" :class="['textarea-field', inputSize]" :placeholder="placeholder" />
 </template>
 
 <script setup>
@@ -29,13 +29,17 @@ const inputSize = computed(() => `input-${props.size}`);
 </script>
 
 <style lang="scss" scoped>
-.input-field {
+.textarea-field {
     width: 100%;
+    // height: 200px;
+    min-height: 100px;
     margin: 5px;
     padding: 22px 15px;
     border: none;
     border-radius: 15px;
     font-size: 16px;
+    resize: none;
+    overflow-y: auto;
 
     &:focus {
         outline: none;
