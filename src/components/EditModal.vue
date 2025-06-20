@@ -2,12 +2,12 @@
     <div class="bg" v-if="show">
         <div class="modal">
             <h2 style="color: black;">{{ t('roots.editModal.title') }}</h2>
-            <BaseInput type="text" :placeholder="t('roots.editModal.bookName')" />
-            <BaseInput type="text" :placeholder="t('roots.editModal.authorName')" />
-            <BaseInput textarea :placeholder="t('roots.editModal.summary')" />
+            <base-input type="text" :placeholder="t('roots.editModal.bookName')" />
+            <base-input type="text" :placeholder="t('roots.editModal.authorName')" />
+            <base-textarea textarea :placeholder="t('roots.editModal.summary')" />
             <div class="count-price">
-                <BaseInput type="number" :placeholder="t('roots.editModal.count')" />
-                <BaseInput type="text" :placeholder="t('roots.editModal.price')" />
+                <base-input type="number" :placeholder="t('roots.editModal.count')" />
+                <base-input type="text" :placeholder="t('roots.editModal.price')" />
             </div>
             <div class="btns">
                 <Button :label="t('roots.editModal.change')" width="200px" height="50px"
