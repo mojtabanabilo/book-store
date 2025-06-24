@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getLocalStorage } from "@/utils/hooks/localStorage";
+import { getLocalStorage, saveLocalStorage } from "@/utils/hooks/localStorage";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
@@ -19,7 +19,12 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-    response => response.data,
+    response => {
+      if (response.status === 201 && response.data.token) {
+        saveLocalStorage('token', response.data.token)
+      }
+      return response.data
+    },
     err => Promise.reject(err.response ? err.response.data : err.message)
 );
 
