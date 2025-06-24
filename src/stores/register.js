@@ -15,9 +15,10 @@ export const useRegisterStore = defineStore("register", () => {
     initialState.error = null;
     try {
       const response = await axiosInstance.post("/auth/register", { username, password })
-      initialState.data.push(response.data)
+      initialState.data.push(response)
       initialState.isLoading = false
     } catch (e) {
+      console.log(e)
       initialState.error = e;
       initialState.isLoading = false;
       window.alert(initialState.error.message || "An error occurred during registration.");
