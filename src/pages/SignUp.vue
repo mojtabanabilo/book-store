@@ -38,8 +38,7 @@ const userRegisterInfo = reactive({
 })
 
 const registerHandler = async () => {
-  console.log(getRegisterErrorValidation(userRegisterInfo, t));
-  if (getRegisterErrorValidation(userRegisterInfo, t)) {
+  if (getRegisterErrorValidation(userRegisterInfo, t)[0]) {
     window.alert(getRegisterErrorValidation(userRegisterInfo, t)[0]);
     return;
   }
