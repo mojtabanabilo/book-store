@@ -22,22 +22,27 @@
 </template>
 
 <script setup>
+import { reactive } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRegisterStore } from '@/stores/register';
 import { routes } from '@/constans/routes';
-import { useI18n } from 'vue-i18n';
-import { onMounted, reactive, watch } from 'vue';
+import { getRegisterErrorValidation } from '@/utils/validations/customValidation';
 
 const { t } = useI18n();
 const store = useRegisterStore()
 
-const userRegisterInfo = {
+const userRegisterInfo = reactive({
   username: '',
   password: '',
   repeatPass: ''
-}
+})
 
 const registerHandler = async () => {
-  console.log(userRegisterInfo)
+  console.log(getRegisterErrorValidation(userRegisterInfo, t));
+  if (getRegisterErrorValidation(userRegisterInfo, t)) {
+    window.alert(getRegisterErrorValidation(userRegisterInfo, t)[0]);
+    return;
+  }
   await store.registerUser(userRegisterInfo)
 }
 
