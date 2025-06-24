@@ -19,6 +19,8 @@ export const useRegisterStore = defineStore("register", () => {
       initialState.isLoading = false
     } catch (e) {
       initialState.error = e;
+      initialState.isLoading = false;
+      window.alert(initialState.error.message || "An error occurred during registration.");
     } finally {
       initialState.isLoading = false;
     }
