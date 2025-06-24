@@ -18,7 +18,6 @@ export const useRegisterStore = defineStore("register", () => {
       initialState.data.push(response)
       initialState.isLoading = false
     } catch (e) {
-      console.log(e)
       initialState.error = e;
       initialState.isLoading = false;
       window.alert(initialState.error.message || "An error occurred during registration.");

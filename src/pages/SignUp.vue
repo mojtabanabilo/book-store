@@ -10,7 +10,7 @@
       <div class="inputs">
         <base-input type="text" :placeholder="t('roots.signUp.username')" v-model="userRegisterInfo.username" />
         <base-input type="text" :placeholder="t('roots.signUp.password')" v-model="userRegisterInfo.password" />
-        <base-input type="text" :placeholder="t('roots.signUp.repeatPass')" v-model="userRegisterInfo.repeatPass" />
+        <base-input type="text" :placeholder="t('roots.signUp.repeatPass')" v-model="userRegisterInfo.repeatPassword" />
       </div>
       <div class="submit_btn">
         <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px"
@@ -34,12 +34,13 @@ const store = useRegisterStore()
 const userRegisterInfo = reactive({
   username: '',
   password: '',
-  repeatPass: ''
+  repeatPassword: ''
 })
 
 const registerHandler = async () => {
-  if (getRegisterErrorValidation(userRegisterInfo, t)[0]) {
-    window.alert(getRegisterErrorValidation(userRegisterInfo, t)[0]);
+  const validationErrors = getRegisterErrorValidation(userRegisterInfo, t);
+  if (validationErrors.length > 0) {
+    window.alert(validationErrors[0]);
     return;
   }
   await store.registerUser(userRegisterInfo)
