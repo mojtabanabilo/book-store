@@ -1,0 +1,22 @@
+@use "../sass/mixins" as mixins;
+
+button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s all;
+  @include mixins.flex(row, center, center);
+  @include mixins.position(absolute, 10px, _, _, 110px);
+  img {
+    width: 25px;
+    height: 25px;
+  }
+
+  &:hover {
+    transform: rotate(360deg);
+    transition: 0.5s all;
+  }
+}
