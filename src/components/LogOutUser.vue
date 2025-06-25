@@ -1,14 +1,23 @@
 <template>
-    <button @click="emitToggle">
-        <img :src="themeIcon" alt="icon" />
+    <button @click="logOutHandler" v-if="token">
+        <img :src="logOutIcon" alt="icon" />
     </button>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import icon from "../assets/icons/icons8-logout-24.png";
-const themeIcon = ref(icon)
-const emitToggle = () => {};
+import { getLocalStorage, removeLocalStorage } from "@/utils/hooks/localStorage";
+
+const logOutIcon = ref(icon)
+const router = useRouter();
+const token = getLocalStorage("token");
+
+const logOutHandler = () => {
+    removeLocalStorage("token");
+    router.push("/Login");
+};
 </script>
 
 <style lang="scss" scoped>
