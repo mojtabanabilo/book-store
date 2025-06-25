@@ -16,7 +16,13 @@ const token = getLocalStorage("token");
 
 const logOutHandler = () => {
     removeLocalStorage("token");
-    router.push("/Login");
+    router.push("/Login")
+    .then(() => {
+        window.location.reload();
+    })
+    .catch((error) => {
+        console.error("Error during logout:", error);
+    });
 };
 </script>
 
