@@ -1,6 +1,6 @@
 <template>
-  <main :class="theme" :dir="directionLang">
-    <ToggleTheme v-model:toggle-theme="theme" />
+  <main :class="store.theme" :dir="store.direction">
+    <ToggleTheme v-model:toggle-theme="store.theme" />
     <ToggleLanguage />
     <LogOutUser />
     <RouterView />
@@ -8,19 +8,20 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { watch } from 'vue';
 import ToggleTheme from './components/ToggleTheme.vue';
 import ToggleLanguage from './components/ToggleLanguage.vue';
 import LogOutUser from './components/LogOutUser.vue';
 import { useI18n } from 'vue-i18n';
-import { getLocalStorage } from './utils/hooks/localStorage';
+import { useSettingStore } from './stores/setting';
 import 'vue3-toastify/dist/index.css';
+
 const { locale } = useI18n();
-// data
-const directionLang = ref('rtl');
-const theme = ref(getLocalStorage('theme'))
-// watch
-watch(locale, (newVal) => newVal === "en" ? directionLang.value = "ltr" : directionLang.value = "rtl")
+const store = useSettingStore()
+
+watch(locale, (newVal) => {
+  store.lang = newVal
+})
 </script>
 
 <style lang="scss">
