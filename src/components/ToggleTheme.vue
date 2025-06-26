@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import icon from "../assets/icons/icons8-dark-48.png";
-import { saveLocalStorage } from '@/utils/hooks/localStorage';
+import { getLocalStorage, saveLocalStorage } from '@/utils/hooks/localStorage';
 // data
 const themeValue = ref('theme-light');
 const themeIcon = ref(icon)
@@ -19,6 +19,13 @@ const emitToggle = () => {
 };
 // watch
 watch(themeValue, (newVal) => saveLocalStorage('theme', newVal))
+
+onMounted(() => {
+    if (!getLocalStorage('theme')){
+        saveLocalStorage('theme', themeValue.value)
+        window.location.reload();
+    }
+})
 </script>
 
 <style lang="scss" scoped>
