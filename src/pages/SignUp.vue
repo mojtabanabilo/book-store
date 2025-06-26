@@ -27,6 +27,7 @@ import { useI18n } from 'vue-i18n';
 import { useRegisterStore } from '@/stores/register';
 import { routes } from '@/constans/routes';
 import { getRegisterErrorValidation } from '@/utils/validations/customValidation';
+import { notify } from '@/utils/hooks/toastify';
 
 const { t } = useI18n();
 const store = useRegisterStore()
@@ -40,7 +41,7 @@ const userRegisterInfo = reactive({
 const registerHandler = async () => {
   const validationErrors = getRegisterErrorValidation(userRegisterInfo, t);
   if (validationErrors.length > 0) {
-    window.alert(validationErrors[0]);
+    notify(validationErrors[0], 'error');
     return;
   }
   await store.registerUser(userRegisterInfo)
