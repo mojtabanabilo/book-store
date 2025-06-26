@@ -14,6 +14,7 @@ import ToggleLanguage from './components/ToggleLanguage.vue';
 import LogOutUser from './components/LogOutUser.vue';
 import { useI18n } from 'vue-i18n';
 import { getLocalStorage } from './utils/hooks/localStorage';
+import 'vue3-toastify/dist/index.css';
 const { locale } = useI18n();
 // data
 const directionLang = ref('rtl');
