@@ -1,28 +1,34 @@
 <template>
-    <button @click="logOutHandler" v-if="token">
+    <button @click="logOutHandler" v-if="logOutShow">
         <img :src="logOutIcon" alt="icon" />
     </button>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { computed, ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import icon from "../assets/icons/icons8-logout-24.png";
-import { getLocalStorage, removeLocalStorage } from "@/utils/hooks/localStorage";
+import { useAuthStore } from "@/stores/auth";
 
 const logOutIcon = ref(icon)
 const router = useRouter();
-const token = getLocalStorage("token");
+const route = useRoute()
+const auth = useAuthStore()
+
+const logOutShow = computed(() => {
+    const hiddenRoutes = ['sign-up', 'login']
+    return !hiddenRoutes.includes(route.name) && auth.token
+})
 
 const logOutHandler = () => {
-    removeLocalStorage("token");
+    auth.clearToken()
     router.push("/Login")
-    .then(() => {
-        window.location.reload();
-    })
-    .catch((error) => {
-        console.error("Error during logout:", error);
-    });
+        .then(() => {
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.error("Error during logout:", error);
+        });
 };
 </script>
 

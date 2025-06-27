@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getLocalStorage, saveLocalStorage } from "@/utils/hooks/localStorage";
+import { getLocalStorage } from "@/utils/hooks/localStorage";
+import { useAuthStore } from "@/stores/auth";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
@@ -11,8 +12,8 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = getLocalStorage("token");
-    if (token) config.headers.Authorization = `Bearer ${token}`;
+    const store = useAuthStore();
+    if (store.token) config.headers.Authorization = `Bearer ${store.token}`;
     return config;
   },
   (err) => Promise.reject(err)
@@ -21,7 +22,8 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
     response => {
       if (response.status === 201 && response.data.token) {
-        saveLocalStorage('token', response.data.token)
+        const store = useAuthStore();
+        store.setToken(response.data.token);
       }
       return response.data
     },

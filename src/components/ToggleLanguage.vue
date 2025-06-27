@@ -4,9 +4,12 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import { getLocalStorage, saveLocalStorage } from '@/utils/hooks/localStorage';
+import { useAuthStore } from '@/stores/auth';
 const { locale } = useI18n();
+
+const store = useAuthStore();
 
 // computed
 const langname = computed(() => locale.value === 'fa' ? 'en' : 'fa');
