@@ -28,9 +28,11 @@ import { useRegisterStore } from '@/stores/register';
 import { routes } from '@/constans/routes';
 import { getRegisterErrorValidation } from '@/utils/validations/customValidation';
 import { notify } from '@/utils/hooks/toastify';
+import { useRouter } from 'vue-router';
 
 const { t } = useI18n();
 const store = useRegisterStore()
+const router = useRouter()
 
 const userRegisterInfo = reactive({
   username: '',
@@ -45,6 +47,9 @@ const registerHandler = async () => {
     return;
   }
   await store.registerUser(userRegisterInfo)
+  if (store.initialState.data.length > 0 && !store.initialState.error) {
+    router.push({name: 'Main', params: store.initialState.data})
+  }
 }
 
 </script>
