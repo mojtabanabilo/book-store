@@ -1,7 +1,9 @@
 import { createI18n } from "vue-i18n";
+import { getLocalStorage } from "@/utils/hooks/localStorage";
+const savedLang = getLocalStorage("lang") || "fa";
 
 const i18n = createI18n({
-  locale: "fa",
+  locale: savedLang,
   fallbackLocale: "en",
   messages: {
     en: {
