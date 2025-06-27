@@ -4,8 +4,8 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-import { computed, ref } from 'vue';
-import { saveLocalStorage } from '@/utils/hooks/localStorage';
+import { computed, onMounted, ref } from 'vue';
+import { getLocalStorage, saveLocalStorage } from '@/utils/hooks/localStorage';
 const { locale } = useI18n();
 
 // computed
@@ -16,6 +16,12 @@ function changeLanguage(lang) {
   saveLocalStorage('lang', lang);
   locale.value = lang;
 }
+
+onMounted(() => {
+  if (!getLocalStorage('lang')) {
+    saveLocalStorage('lang', 'fa')
+  }
+})
 </script>
 
 <style lang="scss" scoped>

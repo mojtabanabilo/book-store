@@ -67,12 +67,12 @@ const i18n = createI18n({
           cancel: 'Cancel'
         },
         registerErrorMessages: {
-          emptyUsername: 'username cannot be empty.',
-          emptyPassword: 'password cannot be empty.',
-          emptyRepeatPassword: 'repeat password cannot be empty.',
-          invalidUsername: 'username must be at least 4 characters.',
-          invalidPassword: 'password must be at least 6 characters.',
-          invalidRepeatPassword: 'repeat password must match the password.',
+          emptyUsername: 'username cannot be empty',
+          emptyPassword: 'password cannot be empty',
+          emptyRepeatPassword: 'repeat password cannot be empty',
+          invalidUsername: 'username must be at least 4 characters',
+          invalidPassword: 'password must be at least 6 characters',
+          invalidRepeatPassword: 'repeat password must match the password',
         }
       },
     },
@@ -137,12 +137,12 @@ const i18n = createI18n({
           cancel: 'انصراف'
         },
         registerErrorMessages: {
-          emptyUsername: 'نام کاربری نمی تواند خالی باشد.',
-          emptyPassword: 'رمز عبور نمی تواند خالی باشد.',
-          emptyRepeatPassword: 'تکرار رمز عبور نمی تواند خالی باشد.',
-          invalidUsername: 'نام کاربری باید حداقل 4 کاراکتر باشد.',
-          invalidPassword: 'رمز عبور باید حداقل 6 کاراکتر باشد.',
-          invalidRepeatPassword: 'تکرار رمز عبور باید با رمز عبور مطابقت داشته باشد.',
+          emptyUsername: 'نام کاربری نمی تواند خالی باشد',
+          emptyPassword: 'رمز عبور نمی تواند خالی باشد',
+          emptyRepeatPassword: 'تکرار رمز عبور نمی تواند خالی باشد',
+          invalidUsername: 'نام کاربری باید حداقل 4 کاراکتر باشد',
+          invalidPassword: 'رمز عبور باید حداقل 6 کاراکتر باشد',
+          invalidRepeatPassword: 'تکرار رمز عبور باید با رمز عبور مطابقت داشته باشد',
         }
       },
     },
