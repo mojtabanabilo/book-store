@@ -1,22 +1,18 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import {
-  getLocalStorage,
-  saveLocalStorage,
-  removeLocalStorage,
-} from "@/utils/hooks/localStorage";
+import { setTokenCookie, getTokenCookie, removeTokenCookie } from "@/utils/hooks/cookie";
 
 export const useAuthStore = defineStore("auth", () => {
-  const token = ref(getLocalStorage("token") || null);
+  const token = ref(getTokenCookie() || null);
 
   const setToken = (newToken) => {
     token.value = newToken;
-    saveLocalStorage("token", newToken);
+    setTokenCookie(newToken);
   };
 
   const clearToken = () => {
     token.value = null;
-    removeLocalStorage("token");
+    removeTokenCookie();
   };
 
   return {
