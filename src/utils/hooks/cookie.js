@@ -1,4 +1,3 @@
-// src/utils/hooks/cookie.js
 import Cookies from "js-cookie";
 
 export const setTokenCookie = (token) => {
