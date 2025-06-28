@@ -26,6 +26,7 @@ import { getLoginErrorValidation } from '@/utils/validations/customValidation';
 import { reactive } from 'vue';
 import { useLoginStore } from '@/stores/login';
 import { useI18n } from 'vue-i18n';
+import { notify } from '@/utils/hooks/toastify';
 
 const { t } = useI18n();
 const store = useLoginStore();
@@ -37,7 +38,7 @@ const userLoginInfo = reactive({
 
 const loginHandler = async () => {
     if (getLoginErrorValidation(userLoginInfo, t)[0]) {
-        window.alert(getLoginErrorValidation(userLoginInfo, t)[0]);
+        notify(getLoginErrorValidation(userLoginInfo, t)[0]);
         return;
     }
     await store.loginUser(userLoginInfo);

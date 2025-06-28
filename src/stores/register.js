@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
 import axiosInstance from "@/api";
+import { notify } from "@/utils/hooks/toastify";
 
 export const useRegisterStore = defineStore("register", () => {
   const initialState = reactive({
@@ -20,7 +21,7 @@ export const useRegisterStore = defineStore("register", () => {
     } catch (e) {
       initialState.error = e;
       initialState.isLoading = false;
-      window.alert(initialState.error.message || "An error occurred during registration.");
+      notify(initialState.error.message || "An error occurred during registration.");
     } finally {
       initialState.isLoading = false;
     }
