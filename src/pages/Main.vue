@@ -8,20 +8,26 @@
             <Button :label="t('roots.main.sort')" width="130px" height="50px" />
         </div>
         <div class="cards">
-            <Card />
+            <Card v-for="book in store.initialState.data.data" :key="book.id" :book="book" />
         </div>
         <pagination />
     </main>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useI18n } from 'vue-i18n';
-const { t } = useI18n();
+import { useBook } from "@/stores/book";
 import Card from "@/components/Card.vue"
 import books from "@/assets/icons/icons8-book-48.png"
 
+const { t } = useI18n();
+const store = useBook();
 const bookIcon = ref(books)
+
+onMounted(async () => {
+    await store.getBook()
+});
 </script>
 
 <style lang="scss" scoped>
