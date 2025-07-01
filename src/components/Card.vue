@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import pic from "@/assets/pic.jpg";
 import cartIcon from "@/assets/icons/icons8-shopping-cart-48.png";
 import router from "@/router/router";
@@ -28,10 +28,6 @@ const props = defineProps({
 const userController = () => {
     router.push('/book-list');
 };
-
-onMounted(() => {
-    console.log(props.book);
-});
 </script>
 
 <style lang="scss" scoped>
