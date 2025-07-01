@@ -2,7 +2,7 @@
 
 .card {
   width: 230px;
-  height: 245px;
+  height: 280px;
   border-radius: 12px;
   @include mixins.flex(column, center, center);
   img {
@@ -13,7 +13,7 @@
   h2 {
     font-size: large;
     font-weight: 400;
-    margin: 10px 0;
+    margin: 10px 0 0 0;
   }
   .buy {
     width: 100%;
