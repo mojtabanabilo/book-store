@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <img :src="picture" alt="product">
-        <h2>{{ props.book.title }}</h2>
+        <h2>{{ filterTitle(props.book.title) }}</h2>
         <p>{{ props.book.author }}</p>
         <div class="buy">
             <p>{{ props.book.price }} تومان</p>
@@ -12,11 +12,13 @@
 
 <script setup>
 import { ref } from "vue";
+import hooks  from "@/utils/hook/composables";
 import pic from "@/assets/pic.jpg";
 import cartIcon from "@/assets/icons/icons8-shopping-cart-48.png";
 import router from "@/router/router";
 
 const picture = ref(pic);
+const { filterTitle } = hooks();
 
 const props = defineProps({
     book: {

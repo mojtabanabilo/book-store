@@ -5,7 +5,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 import { computed, onMounted } from 'vue';
-import { getLocalStorage, saveLocalStorage } from '@/utils/customHooks/localStorage';
+import { getLocalStorage, saveLocalStorage } from '@/utils/hook/localStorage';
 import { useAuthStore } from '@/stores/auth';
 const { locale } = useI18n();
 

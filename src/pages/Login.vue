@@ -26,7 +26,7 @@ import { getLoginErrorValidation } from '@/utils/validations/customValidation';
 import { reactive } from 'vue';
 import { useLoginStore } from '@/stores/login';
 import { useI18n } from 'vue-i18n';
-import { notify } from '@/utils/customHooks/toastify';
+import { notify } from '@/utils/hook/toastify';
 
 const { t } = useI18n();
 const store = useLoginStore();

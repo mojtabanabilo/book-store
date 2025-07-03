@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
-import { getLocalStorage } from "@/utils/customHooks/localStorage";
+import { getLocalStorage } from "@/utils/hook/localStorage";
 
 export const useSettingStore = defineStore("setting", () => {
   const lang = ref(getLocalStorage("lang") || "fa");

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { setTokenCookie, getTokenCookie, removeTokenCookie } from "@/utils/customHooks/cookie";
+import { setTokenCookie, getTokenCookie, removeTokenCookie } from "@/utils/hook/cookie";
 
 export const useAuthStore = defineStore("auth", () => {
   const token = ref(getTokenCookie() || null);
