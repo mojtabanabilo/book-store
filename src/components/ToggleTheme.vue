@@ -7,7 +7,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue';
 import icon from "../assets/icons/icons8-dark-48.png";
-import { getLocalStorage, saveLocalStorage } from '@/utils/hooks/localStorage';
+import { getLocalStorage, saveLocalStorage } from '@/utils/customHooks/localStorage';
 // data
 const themeValue = ref('theme-light');
 const themeIcon = ref(icon)

@@ -1,5 +1,5 @@
 import { createI18n } from "vue-i18n";
-import { getLocalStorage } from "@/utils/hooks/localStorage";
+import { getLocalStorage } from "@/utils/customHooks/localStorage";
 const savedLang = getLocalStorage("lang") || "fa";
 
 const i18n = createI18n({

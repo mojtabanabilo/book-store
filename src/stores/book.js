@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
 import axiosInstance from "@/api/index";
-import { notify } from "@/utils/hooks/toastify";
+import { notify } from "@/utils/customHooks/toastify";
 
 export const useBook = defineStore("book", () => {
   const initialState = reactive({

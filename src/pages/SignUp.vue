@@ -27,7 +27,7 @@ import { useI18n } from 'vue-i18n';
 import { useRegisterStore } from '@/stores/register';
 import { routes } from '@/constans/routes';
 import { getRegisterErrorValidation } from '@/utils/validations/customValidation';
-import { notify } from '@/utils/hooks/toastify';
+import { notify } from '@/utils/customHooks/toastify';
 import { useRouter } from 'vue-router';
 
 const { t } = useI18n();
