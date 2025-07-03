@@ -14,11 +14,27 @@ export const useBook = defineStore("book", () => {
     error: null,
   });
 
-  const getBook = async (page = 1) => {
+  const nextPage = async () => {
+    if (initialState.page < initialState.totalPages) {
+      initialState.page++;
+      await getBook(initialState.page);
+    }
+  };
+
+  const previousPage = async () => {
+    if (initialState.page > 1) {
+      initialState.page--;
+      await getBook(initialState.page);
+    }
+  };
+
+  const getBook = async (page) => {
     initialState.isLoading = true;
     initialState.error = null;
     try {
-      const response = await axiosInstance.get(`/book?page=${page}&limit=${initialState.limit}`);
+      const response = await axiosInstance.get(
+        `/book?page=${page}&limit=${initialState.limit}`
+      );
       initialState.data = response.data;
       initialState.page = response.page;
       initialState.totalPages = response.totalPages;
@@ -26,11 +42,13 @@ export const useBook = defineStore("book", () => {
     } catch (e) {
       initialState.error = e;
       initialState.isLoading = false;
-      notify(initialState.error.message || "An error occurred during registration.");
+      notify(
+        initialState.error.message || "An error occurred during registration."
+      );
     } finally {
       initialState.isLoading = false;
     }
   };
 
-  return { initialState, getBook };
+  return { initialState, getBook, nextPage, previousPage };
 });

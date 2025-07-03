@@ -1,4 +1,5 @@
 @use "@/sass/mixins" as mixins;
+@use "@/sass/variables" as vars;
 
 .pagination {
     margin-top: 30px;
@@ -14,11 +15,15 @@
         cursor: pointer;
         @include mixins.flex(row, center, center);
         &:hover {
-            background-color: #ff5f5f;
+            background: #ff8f8f;
         }
         img {
             width: 20px;
             height: 20px;
         }
+    }
+    .active {
+        background: #ff8f8f;
+        font-weight: bold;
     }
 }
