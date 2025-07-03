@@ -8,7 +8,7 @@
             <Button :label="t('roots.main.sort')" width="130px" height="50px" />
         </div>
         <div class="cards">
-            <Card v-for="book in store.initialState.data.data" :key="book.id" :book="book" />
+            <Card v-for="book in store.initialState.data" :key="book.id" :book="book" />
         </div>
         <pagination />
     </main>
@@ -26,8 +26,9 @@ const store = useBook();
 const bookIcon = ref(books)
 
 onMounted(async () => {
-    await store.getBook()
+    await store.getBook(store.initialState.page)
 });
+                  
 </script>
 
 <style lang="scss" scoped>
