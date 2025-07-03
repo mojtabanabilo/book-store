@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from "vue";
-import hooks  from "@/utils/composables/composables";
+import hooks  from "@/utils/composables/functions";
 import pic from "@/assets/pic.jpg";
 import cartIcon from "@/assets/icons/icons8-shopping-cart-48.png";
 import router from "@/router/router";
