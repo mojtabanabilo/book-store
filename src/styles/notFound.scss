@@ -1,0 +1,37 @@
+@use "@/sass/variables" as vars;
+
+.not-found {
+  text-align: center;
+  padding: 40px 20px;
+
+  img {
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+
+  .back-home {
+    display: inline-block;
+    background-color: vars.$hot-pink;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

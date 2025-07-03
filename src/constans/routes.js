@@ -3,5 +3,6 @@ export const routes = {
     ULogin: '/login',
     USignUp: '/sign-up',
     UBookList: '/book-list',
-    UProductsList: '/products-list'
+    UProductsList: '/products-list',
+    notFound: '/:pathMatch(.*)*'
 }

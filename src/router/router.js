@@ -28,6 +28,11 @@ const router = createRouter({
       path: routes.UProductsList,
       name: 'UProductsList',
       component: () => import("@/pages/ProductsList.vue")
+    },
+    {
+      path: routes.notFound,
+      name: 'NotFound',
+      component: () => import("@/components/NotFound.vue"),
     }
   ],
 });
