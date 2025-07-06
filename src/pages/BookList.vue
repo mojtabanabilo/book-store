@@ -7,7 +7,7 @@
                 <p>داستایوفسکی</p>
                 <p>نشر علم</p>
                 <h3>250 هزار تومان</h3>
-                <Button :label="t('roots.bookList.btnPurchase')" width="200px" height="50px" :icon="cartIcon" />
+                <Button :label="t('roots.bookList.btnPurchase')" :styleProps="{ width: '200px', height: '50px' }" :icon="cartIcon" />
             </div>
         </div>
         <div class="details" :dir="directionLang">

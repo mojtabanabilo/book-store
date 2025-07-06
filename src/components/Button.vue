@@ -14,14 +14,6 @@ const props = defineProps({
         type: String,
         default: 'Button',
     },
-    width: {
-        type: String,
-        default: '100%',
-    },
-    height: {
-        type: String,
-        default: '40px',
-    },
     size: {
         type: String,
         default: 'medium',
@@ -34,6 +26,8 @@ const props = defineProps({
     styleProps: {
         type: Object,
         default: () => ({
+            width: '100%',
+            height: '40px',
             radius: '15px',
             margin: '',
             background: 'btn-hot-pink',
@@ -43,8 +37,8 @@ const props = defineProps({
 
 const buttonBackground = computed(() => props.styleProps.background);
 const buttonStyle = computed(() => ({
-    width: props.width,
-    height: props.height,
+    width: props.styleProps.width,
+    height: props.styleProps.height,
     borderRadius: props.styleProps.radius,
     margin: props.styleProps.margin,
 }))

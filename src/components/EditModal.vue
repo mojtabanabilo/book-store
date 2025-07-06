@@ -10,10 +10,11 @@
                 <base-input type="text" :placeholder="t('roots.editModal.price')" />
             </div>
             <div class="btns">
-                <Button :label="t('roots.editModal.change')" width="200px" height="50px"
-                    :styleProps="{ background: 'btn-sky-blue', radius: '15px' }" />
-                <Button :label="t('roots.editModal.cancel')" width="200px" height="50px"
-                    :styleProps="{ background: 'btn-gray', radius: '15px' }" @click="emit('close-modal')" />
+                <Button :label="t('roots.editModal.change')"
+                    :styleProps="{ background: 'btn-sky-blue', radius: '15px', width: '200px', height: '50px' }" />
+                <Button :label="t('roots.editModal.cancel')"
+                    :styleProps="{ background: 'btn-gray', radius: '15px', width: '200px', height: '50px' }"
+                    @click="emit('close-modal')" />
             </div>
         </div>
     </div>

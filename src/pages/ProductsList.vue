@@ -3,7 +3,7 @@
         <DeleteModal :show="showDeleteModal" @close-modal="showDeleteModal = false" />
         <AddModal :show="showAddModal" @close-modal="showAddModal = false" />
         <EditModal :show="showEditModal" @close-modal="showEditModal = false" />
-        
+
         <div class="search-container">
             <div class="search-box" :dir="directionLang">
                 <img :src="searchIcon" alt="search" class="search-icon" />
@@ -20,7 +20,7 @@
                 <img :src="managmentBooksIcon" alt="books" />
                 <h2>{{ t('roots.productsList.bookManagment') }}</h2>
             </div>
-            <Button :label="t('roots.productsList.addBooks')" width="130px" height="50px"
+            <Button :label="t('roots.productsList.addBooks')" :styleProps="{ width: '130px', height: '50px' }"
                 @click="showAddModal = true" />
         </div>
         <div class="data-table">

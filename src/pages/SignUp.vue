@@ -13,8 +13,8 @@
         <base-input type="text" :placeholder="t('roots.signUp.repeatPass')" v-model="userRegisterInfo.repeatPassword" />
       </div>
       <div class="submit_btn">
-        <Button :label="t('roots.signUp.submitBtn')" width="100%" height="50px"
-          :styleProps="{ radius: '15px', margin: '20px 0' }" />
+        <Button :label="t('roots.signUp.submitBtn')" 
+          :styleProps="{ radius: '15px', margin: '20px 0', width: '100%', height: '50px' }" />
         <router-link :to="routes.ULogin">{{ t('roots.signUp.link') }}</router-link>
       </div>
     </form>

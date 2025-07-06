@@ -12,8 +12,8 @@
                 <base-input type="text" :placeholder="t('roots.logIn.password')" v-model="userLoginInfo.password" />
             </div>
             <div class="submit_btn">
-                <Button :label="t('roots.logIn.submitBtn')" width="100%" height="50px"
-                    :styleProps="{ radius: '15px', margin: '20px 0' }" />
+                <Button :label="t('roots.logIn.submitBtn')"
+                    :styleProps="{ radius: '15px', margin: '20px 0', width: '100%', height: '50px' }" />
                 <router-link :to="routes.USignUp">{{ t('roots.logIn.link') }}</router-link>
             </div>
         </form>
