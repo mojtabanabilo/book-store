@@ -73,6 +73,14 @@ const i18n = createI18n({
           invalidUsername: 'username must be at least 4 characters',
           invalidPassword: 'password must be at least 6 characters',
           invalidRepeatPassword: 'repeat password must match the password',
+        },
+        bookFilter: {
+          title: 'Filter Books',
+          searchPlaceholder: 'Search by book title',
+          optionPlaceholder: 'Sort by price',
+          lowestPrice: 'Lowest Price',
+          highestPrice: 'Highest Price',
+          btnApply: 'Apply filter',
         }
       },
     },
@@ -143,6 +151,14 @@ const i18n = createI18n({
           invalidUsername: 'نام کاربری باید حداقل 4 کاراکتر باشد',
           invalidPassword: 'رمز عبور باید حداقل 6 کاراکتر باشد',
           invalidRepeatPassword: 'تکرار رمز عبور باید با رمز عبور مطابقت داشته باشد',
+        },
+        bookFilter: {
+          title: 'فیلتر کتاب‌ ها',
+          searchPlaceholder: 'جست و جو بر اساس عنوان کتاب',
+          optionPlaceholder: 'مرتب سازی بر اساس قیمت',
+          lowestPrice: 'کمترین قیمت',
+          highestPrice: 'بیشترین قیمت',
+          btnApply: 'اعمال فیلتر',
         }
       },
     },
