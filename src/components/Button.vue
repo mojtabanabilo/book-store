@@ -1,5 +1,5 @@
 <template>
-    <button :class="['btn', buttonSize, buttonBackground]" :style="buttonStyle">
+    <button :class="['btn', buttonSize]" :style="buttonStyle">
         <span v-if="icon" class="btn-icon">
             <img :src="icon" alt="icon">
         </span>
@@ -25,22 +25,16 @@ const props = defineProps({
     },
     styleProps: {
         type: Object,
-        default: () => ({
-            width: '100%',
-            height: '40px',
-            radius: '15px',
-            margin: '',
-            background: 'btn-hot-pink',
-        }),
+        default: () => {},
     }
 })
 
-const buttonBackground = computed(() => props.styleProps.background);
 const buttonStyle = computed(() => ({
-    width: props.styleProps.width,
-    height: props.styleProps.height,
-    borderRadius: props.styleProps.radius,
-    margin: props.styleProps.margin,
+    width: props.styleProps.width ?? '100%',
+    height: props.styleProps.height ?? '40px',
+    borderRadius: props.styleProps.radius ?? '15px',
+    margin: props.styleProps.margin ?? '',
+    background: props.styleProps.background ?? 'btn-hot-pink'
 }))
 const buttonSize = computed(() => {
     switch (props.size) {
