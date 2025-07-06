@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: routes.notFound,
       name: 'NotFound',
-      component: () => import("@/components/NotFound.vue"),
+      component: () => import("@/pages/NotFound.vue"),
     }
   ],
 });
