@@ -6,6 +6,7 @@ import { notify } from "@/utils/hook/toastify";
 export const useBook = defineStore("book", () => {
   const initialState = reactive({
     data: [],
+    sortByTitle: [],
     page: 1,
     totalPages: 1,
     totalBooks: 0,
@@ -28,6 +29,17 @@ export const useBook = defineStore("book", () => {
     }
   };
 
+  const searchByTitle = (title) => {
+    const searchUser = title._value
+    if (!searchUser.trim()) {
+      initialState.sortByTitle = [...initialState.data]
+    }
+    initialState.sortByTitle = initialState.data.filter((i) =>
+      i.title.toLowerCase().includes(searchUser.toLowerCase())
+    );
+    console.log(initialState.sortByTitle);
+  };
+
   const getBook = async (page) => {
     initialState.isLoading = true;
     initialState.error = null;
@@ -36,6 +48,7 @@ export const useBook = defineStore("book", () => {
         `/book?page=${page}&limit=${initialState.limit}`
       );
       initialState.data = response.data;
+      initialState.sortByTitle = response.data;
       initialState.page = response.page;
       initialState.totalPages = response.totalPages;
       initialState.totalBooks = response.totalBooks;
@@ -50,5 +63,5 @@ export const useBook = defineStore("book", () => {
     }
   };
 
-  return { initialState, getBook, nextPage, previousPage };
+  return { initialState, getBook, nextPage, previousPage, searchByTitle };
 });

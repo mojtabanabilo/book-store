@@ -20,18 +20,18 @@
 import { ref } from 'vue';
 import Button from './Button.vue';
 import { useI18n } from 'vue-i18n';
+import { useBook } from '@/stores/book';
 
 const searchTerm = ref('');
 const sortOrder = ref('');
+const selectedItem = ref(null);
 const { t } = useI18n();
 const emit = defineEmits(['filter', 'close']);
+const store = useBook()
 
 const applyFilter = () => {
-    emit('filter', {
-        search: searchTerm.value.trim(),
-        sort: sortOrder.value,
-    });
-    emit('close');
+    store.searchByTitle(searchTerm)
+    close()
 };
 
 const close = () => {
