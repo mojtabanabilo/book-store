@@ -81,6 +81,11 @@ const i18n = createI18n({
           lowestPrice: 'Lowest Price',
           highestPrice: 'Highest Price',
           btnApply: 'Apply filter',
+        },
+        notFound: {
+          title: 'Page not found',
+          description: 'The entered link is incorrect or the page does not exist.',
+          button: 'Back to home'
         }
       },
     },
@@ -159,6 +164,11 @@ const i18n = createI18n({
           lowestPrice: 'کمترین قیمت',
           highestPrice: 'بیشترین قیمت',
           btnApply: 'اعمال فیلتر',
+        },
+        notFound: {
+          title: 'صفحه مورد نظر پیدا نشد',
+          description: 'لینک وارد شده اشتباه است یا صفحه‌ای با این آدرس وجود ندارد.',
+          button: 'بازگشت به خانه'
         }
       },
     },
