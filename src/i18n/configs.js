@@ -86,6 +86,10 @@ const i18n = createI18n({
           title: 'Page not found',
           description: 'The entered link is incorrect or the page does not exist.',
           button: 'Back to home'
+        },
+        noResult: {
+          title: 'No books found !',
+          description: 'Please enter a more specific title or adjust the filters.'
         }
       },
     },
@@ -169,6 +173,10 @@ const i18n = createI18n({
           title: 'صفحه مورد نظر پیدا نشد',
           description: 'لینک وارد شده اشتباه است یا صفحه‌ای با این آدرس وجود ندارد.',
           button: 'بازگشت به خانه'
+        },
+        noResult: {
+          title: 'هیچ کتابی یافت نشد!',
+          description: 'لطفاً عنوان دقیق‌تری وارد کنید یا فیلترها را تغییر دهید.'
         }
       },
     },
