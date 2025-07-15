@@ -6,7 +6,6 @@ import { notify } from "@/utils/hook/toastify";
 export const useBook = defineStore("book", () => {
   const initialState = reactive({
     data: [],
-    sortByTitle: [],
     page: 1,
     totalPages: 1,
     totalBooks: 0,
@@ -32,13 +31,23 @@ export const useBook = defineStore("book", () => {
   const searchByTitle = (title) => {
     const searchUser = title._value
     if (!searchUser.trim()) {
-      initialState.sortByTitle = [...initialState.data]
+      return
     }
-    initialState.sortByTitle = initialState.data.filter((i) =>
+    initialState.data = initialState.data.filter((i) =>
       i.title.toLowerCase().includes(searchUser.toLowerCase())
     );
-    console.log(initialState.sortByTitle);
   };
+
+  const sortByPrice = (price) => {
+    if (!price) {
+      return
+    }
+    if (price === 'lowest') {
+      initialState.data = initialState.data.sort((a, b) => a.price - b.price)
+    } else if (price === 'highest') {
+      initialState.data = initialState.data.sort((a, b) => b.price - a.price)
+    }
+  }
 
   const getBook = async (page) => {
     initialState.isLoading = true;
@@ -63,5 +72,5 @@ export const useBook = defineStore("book", () => {
     }
   };
 
-  return { initialState, getBook, nextPage, previousPage, searchByTitle };
+  return { initialState, getBook, nextPage, previousPage, searchByTitle, sortByPrice };
 });

@@ -1,8 +1,8 @@
 <template>
-    <select class="combo-field" :class="comboSize" v-model="modelValue">
-        <option value="" disabled selected hidden>{{ placeholder }}</option>
-        <option v-for="(item, index) in options" :key="index" :value="item">
-            {{ item }}
+    <select class="combo-field" :class="comboSize" v-model="modelValue" >
+        <option :value="null" disabled hidden>{{ placeholder }}</option>
+        <option v-for="item in options" :key="item.id" :value="item.value">
+            {{ item.title }}
         </option>
     </select>
 </template>
@@ -29,6 +29,8 @@ const props = defineProps({
 });
 
 const comboSize = computed(() => `combo-${props.size}`);
+
+
 </script>
 
 <style lang="scss" scoped>

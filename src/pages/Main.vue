@@ -6,10 +6,11 @@
                 <h2>{{ t('roots.main.title') }}</h2>
             </div>
             <Button :label="t('roots.main.sort')" :styleProps="{width: '130px', height: '50px'}" @click="showFilter" />
+            <Button :label="t('roots.main.sort')" :styleProps="{width: '130px', height: '50px'}" @click="showFilter" />
             <BookFilter v-if="showBookFilter" @close="showBookFilter = false" />
         </div>
         <div class="cards">
-            <Card v-for="book in store.initialState.sortByTitle" :key="book.id" :book="book" />
+            <Card v-for="book in store.initialState.data" :key="book.id" :book="book" />
         </div>
         <pagination />
     </main>
