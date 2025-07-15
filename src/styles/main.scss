@@ -14,6 +14,12 @@
         margin: 0 10px 0 0;
       }
     }
+    .btns {
+      @include mixins.flex(row, space-between, center);
+      > * {
+        margin: 0 2.5px;
+      }
+    }
   }
   .cards {
     width: 100%;

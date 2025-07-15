@@ -12,6 +12,7 @@ export const useBook = defineStore("book", () => {
     limit: 10,
     isLoading: false,
     error: null,
+    isFiltered: false,
   });
 
   const nextPage = async () => {
@@ -36,6 +37,7 @@ export const useBook = defineStore("book", () => {
     initialState.data = initialState.data.filter((i) =>
       i.title.toLowerCase().includes(searchUser.toLowerCase())
     );
+    initialState.isFiltered = true;
   };
 
   const sortByPrice = (price) => {
@@ -47,7 +49,13 @@ export const useBook = defineStore("book", () => {
     } else if (price === 'highest') {
       initialState.data = initialState.data.sort((a, b) => b.price - a.price)
     }
+    initialState.isFiltered = true;
   }
+
+  const removeFilter = async () => {
+    initialState.isFiltered = false; // ✅ فیلتر غیرفعال
+    await getBook(initialState.page); // داده‌ها مجدد از سرور
+  };
 
   const getBook = async (page) => {
     initialState.isLoading = true;
@@ -72,5 +80,5 @@ export const useBook = defineStore("book", () => {
     }
   };
 
-  return { initialState, getBook, nextPage, previousPage, searchByTitle, sortByPrice };
+  return { initialState, getBook, nextPage, previousPage, searchByTitle, sortByPrice, removeFilter };
 });

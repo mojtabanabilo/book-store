@@ -12,7 +12,7 @@ import { computed, defineProps } from 'vue';
 const props = defineProps({
     label: {
         type: String,
-        default: 'Button',
+        default: '',
     },
     size: {
         type: String,
@@ -32,7 +32,7 @@ const props = defineProps({
 const buttonStyle = computed(() => ({
     width: props.styleProps.width ?? '100%',
     height: props.styleProps.height ?? '40px',
-    borderRadius: props.styleProps.radius ?? '15px',
+    borderRadius: props.styleProps.borderRadius ?? '15px',
     margin: props.styleProps.margin ?? '',
     background: props.styleProps.background ?? 'btn-hot-pink'
 }))
@@ -60,6 +60,10 @@ const buttonSize = computed(() => {
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    .btn-icon {
+        margin: 0;
+    }
 
     &-icon {
         margin-right: 8px;
