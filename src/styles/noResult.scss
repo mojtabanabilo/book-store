@@ -1,0 +1,43 @@
+@use "@/sass/mixins" as mixins;
+
+.no-results {
+  width: 100%;
+  text-align: center;
+  margin: 60px auto;
+  animation: fadeIn 0.5s ease-in-out;
+  @include mixins.flex(column, center, center);
+
+  img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  img:hover {
+    transform: scale(1.05);
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  p {
+      font-size: 16px;
+      line-height: 1.6;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
