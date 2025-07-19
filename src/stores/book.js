@@ -53,8 +53,8 @@ export const useBook = defineStore("book", () => {
   }
 
   const removeFilter = async () => {
-    initialState.isFiltered = false; // ✅ فیلتر غیرفعال
-    await getBook(initialState.page); // داده‌ها مجدد از سرور
+    initialState.isFiltered = false;
+    await getBook(initialState.page);
   };
 
   const getBook = async (page) => {
