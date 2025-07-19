@@ -89,7 +89,6 @@ const i18n = createI18n({
         },
         noResult: {
           title: 'No books found !',
-          description: 'Please enter a more specific title or adjust the filters.'
         }
       },
     },
@@ -176,7 +175,6 @@ const i18n = createI18n({
         },
         noResult: {
           title: 'هیچ کتابی یافت نشد!',
-          description: 'لطفاً عنوان دقیق‌تری وارد کنید یا فیلترها را تغییر دهید.'
         }
       },
     },
