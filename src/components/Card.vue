@@ -28,7 +28,7 @@ const props = defineProps({
 });
 
 const userController = () => {
-    router.push('/book-list');
+    router.push(`/book-list/${props.book.id}`);
 };
 </script>
 
