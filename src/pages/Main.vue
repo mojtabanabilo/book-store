@@ -13,7 +13,7 @@
             </div>
             <BookFilter v-if="showBookFilter" @close="showBookFilter = false" />
         </div>
-        <div class="cards" v-if="store.initialState.data.length > 0">
+        <div class="cards" v-if="store.initialState.data.length !== 0">
             <Card v-for="book in store.initialState.data" :key="book.id" :book="book" />
         </div>
         <NoResults v-else />

@@ -28,7 +28,7 @@ const i18n = createI18n({
           sort: "Sort",
         },
         bookList: {
-          bookCode: "Book code",
+          price: "Price",
           ISBN: "ISBN",
           format: "Format",
           numberPages: "Number of Pages",
@@ -114,7 +114,7 @@ const i18n = createI18n({
           sort: "مرتب سازی",
         },
         bookList: {
-          bookCode: "کد کتاب",
+          price: "قیمت",
           ISBN: "شابک",
           format: "قطع",
           numberPages: "تعداد صفحه",
