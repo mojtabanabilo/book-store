@@ -6,6 +6,7 @@
   overflow: hidden;
   background: #00000093;
   transform: translate(-50%, -50%);
+  z-index: 800;
   @include mixins.position(absolute, 50%, _, _, 50%);
   @include mixins.flex(column, center, center);
   .modal {

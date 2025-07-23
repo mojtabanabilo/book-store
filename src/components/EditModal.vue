@@ -36,5 +36,5 @@ const emit = defineEmits(['close-modal'])
 </script>
 
 <style lang="scss" scoped>
-@use "../styles/addModal.scss";
+@use "../styles/editModal.scss";
 </style>
