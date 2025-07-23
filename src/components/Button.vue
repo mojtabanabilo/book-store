@@ -1,5 +1,5 @@
 <template>
-    <button :class="['btn', buttonSize]" :style="buttonStyle">
+    <button :class="['btn', buttonSize, backgroundClass]" :style="buttonStyle">
         <span v-if="icon" class="btn-icon">
             <img :src="icon" alt="icon">
         </span>
@@ -47,6 +47,10 @@ const buttonSize = computed(() => {
 
     }
 })
+const backgroundClass = computed(() => {
+    const validClasses = ['btn-hot-pink', 'btn-sky-blue', 'btn-gray', 'btn-light-green'];
+    return validClasses.includes(props.styleProps.background) ? props.styleProps.background : 'btn-hot-pink';
+});
 </script>
 <style lang="scss" scoped>
 @use "@/sass/mixins" as mixins;
