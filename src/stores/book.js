@@ -61,9 +61,10 @@ export const useBook = defineStore("book", () => {
     initialState.isLoading = true;
     initialState.error = null;
     try {
-      const response = await axiosInstance.get(
-        `/book?page=${page}&limit=${initialState.limit}`
-      );
+      const response =
+        page !== undefined
+          ? await axiosInstance.get(`/book?page=${page}&limit=${initialState.limit}`)
+          : await axiosInstance.get("/book?page=1&limit=100")
       initialState.data = response.data;
       initialState.sortByTitle = response.data;
       initialState.page = response.page;
