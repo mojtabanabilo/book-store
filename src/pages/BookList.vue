@@ -56,7 +56,7 @@ import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { watch, ref, onMounted } from 'vue';
 import { useBook } from '@/stores/book';
-import picture from "@/assets/pic.jpg"
+import picture from "@/assets/book.jpg"
 import cartIcon from "@/assets/icons/icons8-cart-50.png"
 const { t } = useI18n();
 const route = useRoute();
