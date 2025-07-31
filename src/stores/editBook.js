@@ -3,17 +3,17 @@ import { reactive } from "vue";
 import axiosInstance from "@/api";
 import { notify } from "@/utils/hook/toastify";
 
-export const useDeleteBook = defineStore("delete-book", () => {
+export const useEditBook = defineStore("edit-book", () => {
   const initialState = reactive({
     isLoading: false,
     error: null,
   });
 
-  const deleteBookById = async (id) => {
+  const editBookById = async (id, data) => {
     initialState.isLoading = true;
     initialState.error = null;
     try {
-      await axiosInstance.delete(`/book/${id}`);
+      await axiosInstance.put(`/book/${id}`, data);
     } catch (e) {
       initialState.error = e;
       notify(
@@ -24,5 +24,5 @@ export const useDeleteBook = defineStore("delete-book", () => {
     }
   };
 
-  return { initialState, deleteBookById };
+  return { initialState, editBookById };
 });

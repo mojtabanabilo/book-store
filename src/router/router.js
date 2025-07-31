@@ -48,7 +48,7 @@ router.beforeEach((to, _, next) => {
   const isAuthenticated = store.token;
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ name: "Login" }); 
+    next({ name: "SignUp" }); 
   } else if ((to.name === "Login" || to.name === "SignUp") && isAuthenticated) {
     next({ name: "Main" });
   } else {

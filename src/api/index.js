@@ -1,6 +1,9 @@
 import axios from "axios";
-import { useAuthStore } from "@/stores/auth";
-
+import {
+  setTokenCookie,
+  getTokenCookie,
+  setRefreshTokenCookie,
+} from "@/utils/hook/cookie";
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
   timeout: 5000,
@@ -11,22 +14,54 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const store = useAuthStore();
-    if (store.token) config.headers.Authorization = `Bearer ${store.token}`;
+    console.log(config);
+    const token = getTokenCookie();
+    if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
   (err) => Promise.reject(err)
 );
 
 axiosInstance.interceptors.response.use(
-    response => {
-    if (response.status === 201 && response.data.token) {
-      const store = useAuthStore();
-      store.setToken(response.data.token);
+  (response) => {
+    console.log(response);
+    if (response.status === 201 && response.data.accessToken) {
+      setTokenCookie(response.data.accessToken);
     }
-      return response.data
+    if (response.status === 201 && response.data.refreshToken) {
+      setRefreshTokenCookie(response.data.refreshToken);
+    }
+    return response.data;
   },
-    err => Promise.reject(err.response ? err.response.data : err.message)
+  async (err) => {
+    const originalRequest = err.config;
+    if (err.response?.status === 403 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      const refreshToken = getRefreshTokenCookie();
+      if (!refreshToken) {
+        clearAuthCookies();
+        return Promise.reject({ message: "لطفا مجددا وارد شوید." });
+      }
+      try {
+        const res = await axiosInstance.post("auth/refresh", {
+          refreshToken,
+        });
+
+        const newAccessToken = res.data.accessToken;
+        setTokenCookie(newAccessToken);
+
+        originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+        return axiosInstance(originalRequest);
+      } catch (refreshErr) {
+        clearAuthCookies();
+        return Promise.reject({
+          message: "نشست شما منقضی شده است، لطفا دوباره وارد شوید.",
+        });
+      }
+    }
+    return Promise.reject(err.response ? err.response.data : err.message);
+  }
 );
 
 export default axiosInstance;
