@@ -4,6 +4,8 @@ import {
   getTokenCookie,
   setRefreshTokenCookie,
 } from "@/utils/hook/cookie";
+import { encryptPayload } from "@/utils/hook/encryption";
+
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
   timeout: 5000,
@@ -16,6 +18,15 @@ axiosInstance.interceptors.request.use(
   (config) => {
     const token = getTokenCookie();
     if (token) config.headers.Authorization = `Bearer ${token}`;
+    if (
+      config.data &&
+      config.headers["Content-Type"] === "application/json" &&
+      !config.disableEncryption
+    ) {
+      config.data = {
+        encrypted: encryptPayload(config.data),
+      };
+    }
     return config;
   },
   (err) => Promise.reject(err)
@@ -42,9 +53,11 @@ axiosInstance.interceptors.response.use(
         return Promise.reject({ message: "لطفا مجددا وارد شوید." });
       }
       try {
-        const res = await axiosInstance.post("auth/refresh", {
-          refreshToken,
-        });
+        const res = await axiosInstance.post(
+          "auth/refresh",
+          { refreshToken },
+          { disableEncryption: true }
+        );
 
         const newAccessToken = res.data.accessToken;
         setTokenCookie(newAccessToken);
