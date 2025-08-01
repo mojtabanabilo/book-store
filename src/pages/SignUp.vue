@@ -47,9 +47,6 @@ const registerHandler = async () => {
     return;
   }
   await store.registerUser(userRegisterInfo)
-  if (store.initialState.data.length > 0 && !store.initialState.error) {
-    router.push({name: 'Main', params: store.initialState.data})
-  }
 }
 
 </script>

@@ -14,7 +14,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    console.log(config);
     const token = getTokenCookie();
     if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
@@ -24,11 +23,10 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    console.log(response);
-    if (response.status === 201 && response.data.accessToken) {
+    if ((response.status === 201 || response.status === 200) && response.data.accessToken) {
       setTokenCookie(response.data.accessToken);
     }
-    if (response.status === 201 && response.data.refreshToken) {
+    if ((response.status === 201 || response.status === 200) && response.data.refreshToken) {
       setRefreshTokenCookie(response.data.refreshToken);
     }
     return response.data;
