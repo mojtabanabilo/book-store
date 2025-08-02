@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { routes } from "@/constans/routes";
 import { useAuthStore } from "@/stores/auth";
+import { useLoginStore } from "@/stores/login";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,7 +10,7 @@ const router = createRouter({
       path: routes.UMain,
       name: "Main",
       component: () => import("@/pages/Main.vue"),
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true, requiresAdmin: false },
     },
     {
       path: routes.USignUp,
@@ -33,7 +34,7 @@ const router = createRouter({
       path: routes.UProductsList,
       name: "UProductsList",
       component: () => import("@/pages/ProductsList.vue"),
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true, requiresAdmin: true },
     },
     {
       path: routes.notFound,
@@ -43,17 +44,41 @@ const router = createRouter({
   ],
 });
 
+// router.beforeEach((to, _, next) => {
+//   const store = useAuthStore();
+//   const isAuthenticated = store.token;
+//   const role = useLoginStore()
+//   if(role.initialState.data.length > 0) console.log(role.initialState)
+
+//   if (to.meta.requiresAuth && !isAuthenticated) {
+//     next({ name: "SignUp" });
+//   } else if ((to.name === "Login" || to.name === "SignUp") && isAuthenticated) {
+//     if (role.initialState?.data[0]?.role === 'user') {
+//       return next({ name: "Main" });
+//     } else if (role.initialState?.data[0]?.role === 'admin') {
+//       return next({ name: "UProductsList" });
+//     }
+//     next();
+//   }
+// });
 router.beforeEach((to, _, next) => {
-  const store = useAuthStore();
-  const isAuthenticated = store.token;
+  const authStore = useAuthStore();
+  const loginStore = useLoginStore();
+
+  const isAuthenticated = authStore.token;
+  const role = loginStore?.initialState?.data
+  console.log(role)
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ name: "SignUp" }); 
-  } else if ((to.name === "Login" || to.name === "SignUp") && isAuthenticated) {
-    next({ name: "Main" });
-  } else {
-    next();
+    return next({ name: "Login" });
   }
+
+  if ((to.name === "Login" || to.name === "SignUp") && isAuthenticated) {
+    if (role === "admin") return next({ name: "UProductsList" });
+    return next({ name: "Main" });
+  }
+
+  return next();
 });
 
 export default router;

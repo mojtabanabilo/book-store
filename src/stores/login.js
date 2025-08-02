@@ -16,7 +16,8 @@ export const useLoginStore = defineStore("login", () => {
     initialState.error = null;
     try {
       const response = await axiosInstance.post("/auth/login", { username, password })
-      initialState.data.push(response)
+      initialState.data = response.data
+      console.log(initialState.data)
       initialState.isLoading = false
     } catch (e) {
       initialState.error = e;
