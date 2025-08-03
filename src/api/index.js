@@ -4,6 +4,7 @@ import {
   getTokenCookie,
   setRefreshTokenCookie,
 } from "@/utils/hook/cookie";
+import { saveLocalStorage } from "@/utils/hook/localStorage";
 import { encryptPayload } from "@/utils/hook/encryption";
 
 const axiosInstance = axios.create({
@@ -34,6 +35,10 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
+    if ((response.status === 201 || response.status === 200) && response.data.role){
+      saveLocalStorage('role', response.data.role)
+    }
+
     if ((response.status === 201 || response.status === 200) && response.data.accessToken) {
       setTokenCookie(response.data.accessToken);
     }

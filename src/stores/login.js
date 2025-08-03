@@ -11,22 +11,26 @@ export const useLoginStore = defineStore("login", () => {
   });
 
   const loginUser = async ({ username, password }) => {
-    initialState.data = []
+    initialState.data = [];
     initialState.isLoading = true;
     initialState.error = null;
     try {
-      const response = await axiosInstance.post("/auth/login", { username, password })
-      initialState.data = response
-      console.log(initialState.data)
-      initialState.isLoading = false
+      const response = await axiosInstance.post("/auth/login", {
+        username,
+        password,
+      });
+      initialState.data = response;
+      initialState.isLoading = false;
     } catch (e) {
       initialState.error = e;
       initialState.isLoading = false;
-      notify(initialState.error.message || "An error occurred during registration.");
+      notify(
+        initialState.error.message || "An error occurred during registration."
+      );
     } finally {
       initialState.isLoading = false;
     }
   };
 
-  return { initialState, loginUser }
+  return { initialState, loginUser };
 });
