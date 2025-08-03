@@ -66,16 +66,15 @@ router.beforeEach((to, _, next) => {
   const loginStore = useLoginStore();
 
   const isAuthenticated = authStore.token;
-  const role = loginStore?.initialState?.data
-  console.log(role)
+  const role = loginStore.initialState.data?.role;
 
   if (to.meta.requiresAuth && !isAuthenticated) {
     return next({ name: "Login" });
   }
 
   if ((to.name === "Login" || to.name === "SignUp") && isAuthenticated) {
-    if (role === "admin") return next({ name: "UProductsList" });
-    return next({ name: "Main" });
+    if (role === "admin") return next({ name: "UProductsList" })
+    else return next({ name: "Main" });
   }
 
   return next();
