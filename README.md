@@ -35,11 +35,11 @@ To run this project properly, you also need the backend service.
 Download the backend project from this link:
 📥 [Download Backend Project](https://drive.google.com/drive/folders/1f_XAPcNF0KR6ek3P20_22m_R8kVjVct7?usp=drive_link)
 
-2️⃣ Install Dependencies
+2️⃣ Install Dependencies: 
 npm install
 
-3️⃣ Run Backend
+3️⃣ Run Backend: 
 npm start
 
-Backend will be running at:
+Backend will be running at: 
 http://localhost:3000
