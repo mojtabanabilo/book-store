@@ -9,8 +9,8 @@
       <h2>{{ t('roots.signUp.title') }}</h2>
       <div class="inputs">
         <base-input type="text" :placeholder="t('roots.signUp.username')" v-model="userRegisterInfo.username" />
-        <base-input type="text" :placeholder="t('roots.signUp.password')" v-model="userRegisterInfo.password" />
-        <base-input type="text" :placeholder="t('roots.signUp.repeatPass')" v-model="userRegisterInfo.repeatPassword" />
+        <base-input type="password" :placeholder="t('roots.signUp.password')" v-model="userRegisterInfo.password" />
+        <base-input type="password" :placeholder="t('roots.signUp.repeatPass')" v-model="userRegisterInfo.repeatPassword" />
       </div>
       <div class="submit_btn">
         <Button :label="t('roots.signUp.submitBtn')" 

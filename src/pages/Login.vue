@@ -9,7 +9,7 @@
             <h2>{{ t('roots.logIn.title') }}</h2>
             <div class="inputs">
                 <base-input type="text" :placeholder="t('roots.logIn.username')" v-model="userLoginInfo.username" />
-                <base-input type="text" :placeholder="t('roots.logIn.password')" v-model="userLoginInfo.password" />
+                <base-input type="password" :placeholder="t('roots.logIn.password')" v-model="userLoginInfo.password" />
             </div>
             <div class="submit_btn">
                 <Button :label="t('roots.logIn.submitBtn')"
