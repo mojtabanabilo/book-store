@@ -47,6 +47,7 @@ const registerHandler = async () => {
     return;
   }
   await store.registerUser(userRegisterInfo)
+  window.location.reload()
 }
 
 </script>

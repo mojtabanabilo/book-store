@@ -42,6 +42,7 @@ const loginHandler = async () => {
         return;
     }
     await store.loginUser(userLoginInfo);
+    window.location.reload()
 }
 </script>
 
