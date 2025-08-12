@@ -35,21 +35,23 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    if ((response.status === 201 || response.status === 200) && response.data.role){
+    const successResponse = response.status === 201 || response.status === 200
+    if ((successResponse) && response.data.role){
       saveLocalStorage('role', response.data.role)
     }
-
-    if ((response.status === 201 || response.status === 200) && response.data.accessToken) {
+    if ((successResponse) && response.data.accessToken) {
       setTokenCookie(response.data.accessToken);
     }
-    if ((response.status === 201 || response.status === 200) && response.data.refreshToken) {
+    if ((successResponse) && response.data.refreshToken) {
       setRefreshTokenCookie(response.data.refreshToken);
     }
     return response.data;
   },
   async (err) => {
     const originalRequest = err.config;
+    console.log(err, originalRequest)
     if (err.response?.status === 403 && !originalRequest._retry) {
+      console.log('refresh token')
       originalRequest._retry = true;
 
       const refreshToken = getRefreshTokenCookie();
